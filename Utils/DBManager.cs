@@ -37,12 +37,15 @@ namespace charity_management_system.Utils
 
         private void config()
         {
-            _config.Add("DataSource", "orcl");
-            _config.Add("UserId", "hr");
-            _config.Add("Password", "hr");
+            _config.Add("DataSource", "orclk");
+            _config.Add("UserId", "SCOTT");
+            _config.Add("Password", "tiger");
 
             this.connection = new OracleConnection(connectionString);
             this.connection.Open();
+        }
+        ~DBManager() {
+            this.connection.Dispose();
         }
     }
 }
