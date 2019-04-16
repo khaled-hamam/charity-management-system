@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using charity_management_system.Utils;
 namespace charity_management_system
 {
     /// <summary>
@@ -22,6 +22,7 @@ namespace charity_management_system
     {
         public MainWindow()
         {
+           DBManager db = DBManager.instance;
             InitializeComponent();
         }
     }
