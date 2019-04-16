@@ -22,4 +22,5 @@ namespace charity_management_system.Models
             branchGovernrate = "";
             branchCity = "";
         }
+    }
 }
