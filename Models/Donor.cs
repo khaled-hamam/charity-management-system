@@ -13,7 +13,7 @@ namespace charity_management_system.Models
         public String donorMobile;
         public String donorLine1;
         public String donorLine2;
-        public String donorGovernrate;
+        public String donorGovernorate;
         public String donorCity;
 
         public Donor(int id, String name, String mobile, String address_line1, String city, String governorate)
@@ -23,7 +23,7 @@ namespace charity_management_system.Models
             donorMobile = mobile;
             donorLine1 = address_line1;
             donorCity = city;
-            donorGovernrate = governorate;
+            donorGovernorate = governorate;
         }
     }
 }

@@ -11,16 +11,16 @@ namespace charity_management_system.Models
         public int branchID;
         public String branchLine1;
         public String branchLine2;
-        public String branchGovernrate;
+        public String branchGovernorate;
         public String branchCity;
 
-        public Branch()
+        public Branch(int id, String line1, String city, String governorate)
         {
-            branchID = 0;
-            branchLine1 = "";
-            branchLine2 = "";
-            branchGovernrate = "";
-            branchCity = "";
+            this.branchID = id;
+            this.branchLine1 = line1;
+            this.branchLine2 = "";
+            this.branchGovernorate = governorate;
+            this.branchCity = city;
         }
     }
 }

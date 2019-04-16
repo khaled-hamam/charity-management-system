@@ -17,16 +17,16 @@ namespace charity_management_system.Models
         public String employeeEmail;
         public Branch branch;
 
-        public Employee(int SSN, String Name, String addressLine1, String addressLine2, String Governorate, int branchID)
+        public Employee(int SSN, String Name, String addressLine1, String city, String governorate, int branchID)
         {
             this.SSN = SSN;
             this.employeeName = Name;
             this.employeeMobile = "";
             this.employeeBirthDate = System.DateTime.Today;
             this.employeeLine1 = addressLine1;
-            this.employeeLine2 = addressLine2;
-            this.employeeCity = "";
-            this.employeeGovernorate = Governorate;
+            this.employeeLine2 = "";
+            this.employeeCity = city;
+            this.employeeGovernorate = governorate;
             this.employeeStartDate = System.DateTime.Today;
             this.employeeEmail = "";
             this.branch.branchID = branchID;

@@ -59,8 +59,12 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Models\Branch.cs" />
+    <Compile Include="Models\Department.cs" />
+    <Compile Include="Models\Donation.cs" />
     <Compile Include="Models\Donor.cs" />
     <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\PaidEmployee.cs" />
+    <Compile Include="Models\Volunteer.cs" />
     <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Utils\DBManager.cs" />
     <Page Include="MainWindow.xaml">
