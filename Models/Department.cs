@@ -13,11 +13,11 @@ namespace charity_management_system.Models
 
         public Department()
         {
-            this.name = "";
+            this.Name = "";
         }
         public Department(String name)
         {
-            this.name = name;
+            this.Name = name;
         }
     }
 }
