@@ -15,15 +15,12 @@ namespace charity_management_system.Models
         public String campaignDescription;
         public String campaignGoal;
 
-        Campaign()
+        Campaign(int id, String name, DateTime startDate , DateTime endDate)
         {
-            campaignID = 0;
-            campaignName = "";
-            startDate = System.DateTime.Now;
-            endDate = System.DateTime.Now;
-            campaignDescription = "";
-            campaignGoal = "";
-        }
-       
+            this.campaignID = id;
+            this.campaignName = name;
+            this.startDate = startDate;
+            this.endDate = endDate;
+        }   
     }
 }

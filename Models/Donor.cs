@@ -16,15 +16,14 @@ namespace charity_management_system.Models
         public String donorGovernrate;
         public String donorCity;
 
-        public Donor()
+        public Donor(int id, String name, String mobile, String address_line1, String city, String governorate)
         {
-            donorID = 0;
-            donorName = "";
-            donorMobile = "";
-            donorLine1 = "";
-            donorLine2 = "";
-            donorGovernrate = "";
-            donorCity = "";
+            donorID = id;
+            donorName = name;
+            donorMobile = mobile;
+            donorLine1 = address_line1;
+            donorCity = city;
+            donorGovernrate = governorate;
         }
     }
 }
