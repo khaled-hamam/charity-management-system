@@ -12,17 +12,16 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using charity_management_system.Utils;
-namespace charity_management_system
+
+namespace charity_management_system.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for EmployeesView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class EmployeesView : UserControl
     {
-        public MainWindow()
+        public EmployeesView()
         {
-           DBManager db = DBManager.instance;
             InitializeComponent();
         }
     }

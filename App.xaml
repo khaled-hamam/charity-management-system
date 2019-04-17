@@ -1,9 +1,118 @@
 ﻿<Application x:Class="charity_management_system.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:charity_management_system"
-             StartupUri="MainWindow.xaml">
+             xmlns:local="clr-namespace:charity_management_system">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <!-- App Colors -->
+            <SolidColorBrush x:Key="PrimaryColor" Color="#34495e" />
+            <SolidColorBrush x:Key="AccentColor" Color="#2d6dd5" />
+            <SolidColorBrush x:Key="DarkText" Color="#0e263e" />
+            <SolidColorBrush x:Key="LightText" Color="#a6b4ba" />
+            <SolidColorBrush x:Key="SelectedButton" Color="#233342" />
+            <SolidColorBrush x:Key="GreyBG" Color="#ecf0f1" />
+
+            <!-- Component Styles -->
+            <Style x:Key="NavButton" BasedOn="{StaticResource MaterialDesignListBoxItem}" TargetType="{x:Type ListViewItem}">
+                <Setter Property="Height" Value="35" />
+                <Setter Property="Margin" Value="0 5" />
+                <Setter Property="Padding" Value="0" />
+                <Setter Property="HorizontalContentAlignment" Value="Center" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="Foreground" Value="White" />
+                <Setter Property="FontWeight" Value="Medium" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="FontFamily" Value="Arial" />
+                <Style.Triggers>
+                    <Trigger Property="IsSelected" Value="False">
+                        <Setter Property="FontWeight" Value="Thin"/>
+                        <Setter Property="Foreground" Value="{StaticResource LightText}"/>
+                    </Trigger>
+                    <Trigger Property="IsSelected" Value="True">
+                        <Setter Property="Background" Value="{StaticResource SelectedButton}" />
+                        <Setter Property="BorderThickness" Value="0" />
+                    </Trigger>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="BorderThickness" Value="0" />
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+
+            <Style x:Key="SettingsButton" BasedOn="{StaticResource MaterialDesignFloatingActionMiniButton}" TargetType="{x:Type Button}">
+                <Setter Property="Foreground" Value="{StaticResource LightText}" />
+                <Setter Property="Margin" Value="0 20" />
+                <Setter Property="HorizontalAlignment" Value="Center" />
+                <Setter Property="Padding" Value="0" />
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="BorderThickness" Value="0" />
+                <Setter Property="BorderBrush" Value="Transparent" />
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Foreground" Value="White" />
+                        <Setter Property="Background" Value="Transparent" />
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+
+            <Style x:Key="InfoTitle" TargetType="{x:Type TextBlock}">
+                <Setter Property="FontFamily" Value="Arial" />
+                <Setter Property="FontWeight" Value="Bold" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="Foreground" Value="{StaticResource LightText}" />
+            </Style>
+
+            <Style x:Key="InfoValue" BasedOn="{StaticResource InfoTitle}" TargetType="{x:Type TextBlock}">
+                <Setter Property="Foreground" Value="{StaticResource DarkText}" />
+            </Style>
+
+            <!-- Details View Info Title -->
+            <Style x:Key="DetailsInfoTitle" TargetType="{x:Type TextBlock}">
+                <Setter Property="Foreground" Value="{StaticResource LightText}" />
+                <Setter Property="VerticalAlignment" Value="Center"/>
+                <Setter Property="HorizontalAlignment" Value="Left"/>
+                <Setter Property="FontFamily" Value="Arial"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="FontWeight" Value="SemiBold"/>
+                <Setter Property="Margin" Value="15 15 0 0"/>
+            </Style>
+
+            <!-- Details View Info Value -->
+            <Style x:Key="DetailsInfoValue" BasedOn="{StaticResource DetailsInfoTitle}" TargetType="{x:Type TextBlock}">
+                <Setter Property="Foreground" Value="{StaticResource PrimaryColor}"/>
+                <Setter Property="Margin" Value="15 5 0 0"/>
+            </Style>
+            <!--Details View DialogHost Border-->
+            <Style x:Key="DetailsDialogHostBorder" TargetType="{x:Type Border}">
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="MinWidth" Value="256"/>
+                <Setter Property="MinHeight" Value="256"/>
+                <Setter Property="BorderBrush" Value="{StaticResource PrimaryColor}"/>
+                <Setter Property="ClipToBounds" Value="True"/>
+            </Style>
+            <!--Details View Button-->
+            <Style x:Key="DetailsButton" TargetType="{x:Type Button}" BasedOn="{StaticResource MaterialDesignRaisedDarkButton}">
+                <Setter Property="materialDesign:ShadowAssist.ShadowDepth" Value="Depth0"/>
+                <Setter Property="Background" Value="{StaticResource PrimaryColor}"/>
+                <Setter Property="Width" Value="80"/>
+                <Setter Property="BorderThickness" Value="0"/>
+                <Setter Property="FontFamily" Value="Arial"/>
+                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+                <Setter Property="Foreground" Value="white"/>
+            </Style>
+
+            <!-- Meterial Design Theme -->
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary>
+                    <local:Bootstrapper x:Key="Bootstrapper"/>
+                </ResourceDictionary>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Dark.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Blue.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Indigo.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
