@@ -22,7 +22,7 @@ namespace charity_management_system.Repositories
         {
             command.CommandText = "delete from Donor where id =:DonorID";
             command.CommandType = System.Data.CommandType.Text;
-            command.Parameters.Add("DonorID", model.donorID);
+            command.Parameters.Add("DonorID", model.id);
             int check = command.ExecuteNonQuery();
             
             if(check == -1)
@@ -49,7 +49,7 @@ namespace charity_management_system.Repositories
                                         reader["address_line1"].ToString(),
                                         reader["city"].ToString(),
                                         reader["governorate"].ToString());
-                donor.donorLine2 = reader["address_line2"].ToString();
+                donor.addressLine2 = reader["address_line2"].ToString();
                 Donors.Add(donor);
             }
             reader.Close();
@@ -72,7 +72,7 @@ namespace charity_management_system.Repositories
                                         reader["address_line1"].ToString(),
                                         reader["city"].ToString(),
                                         reader["governorate"].ToString());
-                donor.donorLine2 = reader["address_line2"].ToString();
+                donor.addressLine2 = reader["address_line2"].ToString();
                 Donors.Add(donor);
             }
             reader.Close();
@@ -95,7 +95,7 @@ namespace charity_management_system.Repositories
                                         reader["address_line1"].ToString(),
                                         reader["city"].ToString(),
                                         reader["governorate"].ToString());
-                foundDonor.donorLine2 = reader["address_line2"].ToString();
+                foundDonor.addressLine2 = reader["address_line2"].ToString();
             }
             else
             {
@@ -111,12 +111,12 @@ namespace charity_management_system.Repositories
         {
             command.CommandText = "insert into donors values (:name, :mobile, :address_line1, :address_line2, :city, :governorate)";
             command.CommandType = System.Data.CommandType.Text;
-            command.Parameters.Add("name", model.donorName);
-            command.Parameters.Add("mobile", model.donorMobile);
-            command.Parameters.Add("address_line1", model.donorLine1);
-            command.Parameters.Add("address_line2", model.donorLine2);
-            command.Parameters.Add("city", model.donorCity);
-            command.Parameters.Add("governorate", model.donorGovernorate);
+            command.Parameters.Add("name", model.name);
+            command.Parameters.Add("mobile", model.mobile);
+            command.Parameters.Add("address_line1", model.addressLine1);
+            command.Parameters.Add("address_line2", model.addressLine2);
+            command.Parameters.Add("city", model.city);
+            command.Parameters.Add("governorate", model.governorate);
             
             int check = command.ExecuteNonQuery();
             //if (check != -1)
@@ -131,12 +131,12 @@ namespace charity_management_system.Repositories
             command.CommandText = "update donor set name =:name, mobile =:mobile, address_line1 =:address_line1, address_line2 =:address_line2, city =:city,  governorate =:governorate";
             command.CommandType = System.Data.CommandType.Text;
           
-            command.Parameters.Add("name", newModel.donorName);
-            command.Parameters.Add("mobile", newModel.donorMobile);
-            command.Parameters.Add("address_line1", newModel.donorLine1);
-            command.Parameters.Add("address_line2", newModel.donorLine2);
-            command.Parameters.Add("city", newModel.donorCity);
-            command.Parameters.Add("governorate", newModel.donorGovernorate);
+            command.Parameters.Add("name", newModel.name);
+            command.Parameters.Add("mobile", newModel.mobile);
+            command.Parameters.Add("address_line1", newModel.addressLine1);
+            command.Parameters.Add("address_line2", newModel.addressLine2);
+            command.Parameters.Add("city", newModel.city);
+            command.Parameters.Add("governorate", newModel.governorate);
 
             int check = command.ExecuteNonQuery();
             if(check == -1)

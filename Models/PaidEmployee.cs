@@ -12,7 +12,7 @@ namespace charity_management_system.Models
         float salary;
         Department department;
 
-        public PaidEmployee(int SSN, string Name, string addressLine1, string city, string governorate, int branchID, float salary) : base(SSN, Name, addressLine1, city, governorate, branchID)
+        public PaidEmployee(int SSN, String mobile, String Name, String addressLine1, String city, String governorate,  float salary) : base(SSN, mobile, Name, addressLine1, city, governorate)
         {
             this.salary = salary;
         }
