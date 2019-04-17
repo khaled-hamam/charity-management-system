@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace charity_management_system.Models
 {
-    class Branch
+    public class Branch
     {
         public int branchID;
         public String branchLine1;
