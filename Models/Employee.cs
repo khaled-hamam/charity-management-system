@@ -5,7 +5,7 @@ namespace charity_management_system.Models
     public class Employee
     {
         public int SSN;
-        public String name;
+        public String name { get; set; }
         public String mobile;
         public DateTime birthDate;
         public char gender;

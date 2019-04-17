@@ -17,7 +17,7 @@ namespace charity_management_system.ViewModels
         {
             _employees.Add(new Employee
             {
-                employeeName = "Karim"
+                name = "Karim"
             });
             Employees = new BindableCollection<Employee>(_employees); 
         }
