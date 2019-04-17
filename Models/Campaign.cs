@@ -8,17 +8,17 @@ namespace charity_management_system.Models
 {
     class Campaign
     {
-        public int campaignID;
-        public String campaignName;
+        public int id;
+        public String name;
         public DateTime startDate;
         public DateTime endDate;
-        public String campaignDescription;
-        public String campaignGoal;
+        public String description;
+        public String goal;
 
-        Campaign(int id, String name, DateTime startDate , DateTime endDate)
+       public Campaign(int id, String name, DateTime startDate , DateTime endDate)
         {
-            this.campaignID = id;
-            this.campaignName = name;
+            this.id = id;
+            this.name = name;
             this.startDate = startDate;
             this.endDate = endDate;
         }   

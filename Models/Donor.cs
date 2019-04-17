@@ -8,22 +8,22 @@ namespace charity_management_system.Models
 {
     class Donor
     {
-        public int donorID;
-        public String donorName;
-        public String donorMobile;
-        public String donorLine1;
-        public String donorLine2;
-        public String donorGovernorate;
-        public String donorCity;
+        public int id;
+        public String name;
+        public String mobile;
+        public String addressLine1;
+        public String addressLine2;
+        public String governorate;
+        public String city;
 
         public Donor(int id, String name, String mobile, String address_line1, String city, String governorate)
         {
-            donorID = id;
-            donorName = name;
-            donorMobile = mobile;
-            donorLine1 = address_line1;
-            donorCity = city;
-            donorGovernorate = governorate;
+            this.id = id;
+            this.name = name;
+            this.mobile = mobile;
+            this.addressLine1 = address_line1;
+            this.city = city;
+            this.governorate = governorate;
         }
     }
 }

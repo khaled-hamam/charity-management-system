@@ -8,19 +8,19 @@ namespace charity_management_system.Models
 {
     public class Branch
     {
-        public int branchID;
-        public String branchLine1;
-        public String branchLine2;
-        public String branchGovernorate;
-        public String branchCity;
-
+        public int id;
+        public String addressLine1;
+        public String addressLine2;
+        public String governorate;
+        public String city;
+        
         public Branch(int id, String line1, String city, String governorate)
         {
-            this.branchID = id;
-            this.branchLine1 = line1;
-            this.branchLine2 = "";
-            this.branchGovernorate = governorate;
-            this.branchCity = city;
+            this.id = id;
+            this.addressLine1 = line1;
+            this.addressLine2= "";
+            this.governorate = governorate;
+            this.city = city;
         }
     }
 }
