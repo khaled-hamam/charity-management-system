@@ -5,7 +5,7 @@ using Oracle.DataAccess.Types;
 
 namespace charity_management_system.Repositories
 {
-    interface IRepository<T>
+    public interface IRepository<T>
     {
         T save(T model);
         List<T> find(String column, String value);

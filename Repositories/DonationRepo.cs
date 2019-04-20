@@ -5,9 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using charity_management_system.Models;
+using charity_management_system.Utils;
+using Oracle.DataAccess.Client;
 
 namespace charity_management_system.Repositories {
-    class DonationRepo : IRepository<Donation> {
+   public class DonationRepo : IRepository<Donation> {
         private OracleConnection connection;
         private OracleCommand command;
 
@@ -20,9 +22,9 @@ namespace charity_management_system.Repositories {
         public bool delete (Donation model) {
             command.CommandText = "delete from donations where campaign_id = :campaign_id and donor_id = donor_id and donation_date = donationDate";
             command.CommandType = System.Data.CommandType.Text;
-            command.Parameters.Add ("campaign_id", campaign_id);
-            command.Parameters.Add ("donor_id", donor_id);
-            command.Parameters.Add ("donation_date", donationDate);
+            command.Parameters.Add ("campaign_id", model.campaign.id);
+            command.Parameters.Add ("donor_id", model.donor.id);
+            command.Parameters.Add ("donation_date", model.date);
 
             int check = command.ExecuteNonQuery ();
 
@@ -43,10 +45,10 @@ namespace charity_management_system.Repositories {
             while (reader.Read ()) {
                 Donation donation = new Donation {
                     // date: reader["donation_date"],
-                    type : reader["donation_type"].ToString (),
-                    value : int.Parse (reader["value"].ToString ()),
-                    campaign : new Campaign (int.Parse (reader["campaign_id"].ToString ())),
-                    donor : new Donor (int.Parse (reader["donor_id"].ToString ()))
+                    type = reader["donation_type"].ToString (),
+                    value = int.Parse (reader["value"].ToString ()),
+                    campaign = new Campaign (int.Parse (reader["campaign_id"].ToString ())),
+                    donor = new Donor (int.Parse (reader["donor_id"].ToString ()))
                 };
 
                 donations.Add (donation);
@@ -58,18 +60,16 @@ namespace charity_management_system.Repositories {
         public List<Donation> findAll () {
             command.CommandText = "select * from donation";
             command.CommandType = CommandType.Text;
-            command.Parameters.Add ("columnName", column);
-            command.Parameters.Add ("value", value);
 
             OracleDataReader reader = command.ExecuteReader ();
             List<Donation> donations = new List<Donation> ();
             while (reader.Read ()) {
                 Donation donation = new Donation {
                     // date: reader["donation_date"],
-                    type : reader["donation_type"].ToString (),
-                    value : int.Parse (reader["value"].ToString ()),
-                    campaign : new Campaign (int.Parse (reader["campaign_id"].ToString ())),
-                    donor : new Donor (int.Parse (reader["donor_id"].ToString ()))
+                    type = reader["donation_type"].ToString (),
+                    value = int.Parse (reader["value"].ToString ()),
+                    campaign = new Campaign (int.Parse (reader["campaign_id"].ToString ())),
+                    donor = new Donor (int.Parse (reader["donor_id"].ToString ()))
                 };
 
                 donations.Add (donation);

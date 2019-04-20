@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace charity_management_system.Models {
-    class Donor {
+    public class Donor {
         public int id;
         public String name;
         public String mobile;

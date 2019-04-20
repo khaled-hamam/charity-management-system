@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace charity_management_system.Models {
-    class Campaign {
+    public class Campaign {
         public int id;
         public String name;
         public DateTime startDate;
@@ -13,7 +13,7 @@ namespace charity_management_system.Models {
         public String description;
         public String goal;
 
-        public Campaingn (int id) {
+        public Campaign (int id) {
             this.id = id;
         }
 

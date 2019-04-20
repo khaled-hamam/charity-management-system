@@ -1,7 +1,7 @@
 ﻿using System;
 
 namespace charity_management_system.Models {
-    class Donation {
+    public class Donation {
         public Donor donor;
         public Campaign campaign;
         public DateTime date;

@@ -93,6 +93,7 @@
     <Compile Include="Repositories\DonationRepo.cs" />
     <Compile Include="Repositories\DonorRepo.cs" />
     <Compile Include="Repositories\IRepository.cs" />
+    <Compile Include="Repositories\PaidEmployeeRepo.cs" />
     <Compile Include="Utils\DBManager.cs" />
     <Page Include="Views\DepartmentsView.xaml">
       <SubType>Designer</SubType>
