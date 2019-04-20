@@ -23,7 +23,15 @@ namespace charity_management_system.Repositories
         }
         public bool delete(PaidEmployee model)
         {
-            throw new NotImplementedException();
+            command.CommandText = "DELETE_PAID_EMPLOYEE";
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.Add("emp_ssn", model.SSN);
+            int check = command.ExecuteNonQuery();
+            if (check == -1)
+            {
+                return false;
+            }
+            return true;
         }
 
         public List<PaidEmployee> find(string column, string value)
@@ -33,7 +41,33 @@ namespace charity_management_system.Repositories
 
         public List<PaidEmployee> findAll()
         {
-            throw new NotImplementedException();
+            command.CommandText = "FIND_ALL_PAID_EMPLOYEE";
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.Add("paidEmployee", OracleDbType.RefCursor, ParameterDirection.Output);
+            OracleDataReader reader = command.ExecuteReader();
+            List<PaidEmployee> paidEmployees = new List<PaidEmployee>();
+            while (reader.Read())
+            {
+                PaidEmployee paidEmployee = new PaidEmployee
+                {
+                    SSN = int.Parse(reader["ssn"].ToString()),
+                    name = reader["name"].ToString(),
+                    mobile = reader["mobile"].ToString(),
+                    birthDate = Convert.ToDateTime(reader["birth_date"]),
+                    gender = char.Parse(reader["gender"].ToString()),
+                    addressLine1 = reader["address_line1"].ToString(),
+                    addressLine2 = reader["address_line2"].ToString(),
+                    city = reader["city"].ToString(),
+                    governorate = reader["governorate"].ToString(),
+                    email = reader["email"].ToString(),
+                    salary = float.Parse(reader["salary"].ToString()),
+                    branch = new Branch { id = int.Parse(reader["branch_id"].ToString()) },
+                    department = new Department { name = reader["department_name"].ToString() }
+                };
+                paidEmployees.Add(paidEmployee);
+            }
+            reader.Close();
+            return paidEmployees;
         }
 
         public PaidEmployee findByID(string id)
