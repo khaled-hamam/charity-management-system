@@ -4,7 +4,7 @@ namespace charity_management_system.Models
 {
     public class Employee
     {
-        public int SSN { get; set; }
+        public String SSN { get; set; }
         public String name { get; set; }
         public String mobile { get; set; }
         public DateTime birthDate { get; set; }
@@ -17,7 +17,7 @@ namespace charity_management_system.Models
         public String email { get; set; }
         public Branch branch { get; set; }
         public Employee() { }
-        public Employee(int SSN, String mobile, String Name, String addressLine1, String city, String governorate)
+        public Employee(String SSN, String mobile, String Name, String addressLine1, String city, String governorate)
         {
             this.SSN = SSN;
             this.name = Name;
