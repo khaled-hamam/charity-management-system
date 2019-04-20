@@ -4,10 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace charity_management_system.Models
-{
-    class Campaign
-    {
+namespace charity_management_system.Models {
+    class Campaign {
         public int id;
         public String name;
         public DateTime startDate;
@@ -15,12 +13,16 @@ namespace charity_management_system.Models
         public String description;
         public String goal;
 
-       public Campaign(int id, String name, DateTime startDate , DateTime endDate)
-        {
+        public Campaingn (int id) {
+            this.id = id;
+        }
+
+        public Campaign (int id, String name, DateTime startDate, DateTime endDate) {
             this.id = id;
             this.name = name;
             this.startDate = startDate;
             this.endDate = endDate;
-        }   
+        }
+
     }
 }
