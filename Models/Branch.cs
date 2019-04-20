@@ -8,12 +8,12 @@ namespace charity_management_system.Models
 {
     public class Branch
     {
-        public int id;
+        public int id { get; set; }
         public String addressLine1;
         public String addressLine2;
         public String governorate;
         public String city;
-        
+        public Branch() { }
         public Branch(int id, String line1, String city, String governorate)
         {
             this.id = id;

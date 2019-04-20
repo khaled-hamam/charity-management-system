@@ -6,18 +6,16 @@ using System.Threading.Tasks;
 
 namespace charity_management_system.Models
 {
-    class Department
+   public class Department
     {
-        String name;
-        public String Name { get { return this.name; } private set { this.name = value; } }
-
+        public String name { get; set; }
         public Department()
         {
-            this.Name = "";
+            this.name = "";
         }
         public Department(String name)
         {
-            this.Name = name;
+            this.name = name;
         }
     }
 }

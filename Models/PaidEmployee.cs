@@ -7,11 +7,11 @@ using charity_management_system.Models;
 
 namespace charity_management_system.Models
 {
-    class PaidEmployee : Employee
+    public class PaidEmployee : Employee
     {
-        float salary;
-        Department department;
-
+        public float salary { get; set; }
+        public Department department { get; set; }
+        public PaidEmployee() { }
         public PaidEmployee(int SSN, String mobile, String Name, String addressLine1, String city, String governorate,  float salary) : base(SSN, mobile, Name, addressLine1, city, governorate)
         {
             this.salary = salary;
