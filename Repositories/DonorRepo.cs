@@ -20,9 +20,9 @@ namespace charity_management_system.Repositories
         }
         public bool delete(Donor model)
         {
-            command.CommandText = "delete from Donor where id =:DonorID";
+            command.CommandText = "delete from Donor where id =:donor_id";
             command.CommandType = System.Data.CommandType.Text;
-            command.Parameters.Add("DonorID", model.id);
+            command.Parameters.Add("donor_id", model.id);
             int check = command.ExecuteNonQuery();
             
             if(check == -1)
@@ -43,12 +43,13 @@ namespace charity_management_system.Repositories
             List<Donor> Donors = new List<Donor>();
             while (reader.Read())
             {
-                Donor donor = new Donor(int.Parse(reader["id"].ToString()),
+                Donor donor = new Donor(
                                         reader["name"].ToString(),
                                         reader["mobile"].ToString(),
                                         reader["address_line1"].ToString(),
                                         reader["city"].ToString(),
                                         reader["governorate"].ToString());
+                donor.id =int.Parse(reader["id"].ToString());
                 donor.addressLine2 = reader["address_line2"].ToString();
                 Donors.Add(donor);
             }
@@ -66,12 +67,13 @@ namespace charity_management_system.Repositories
             List<Donor> Donors = new List<Donor>();
             while (reader.Read())
             {
-                Donor donor = new Donor(int.Parse(reader["id"].ToString()),
+                Donor donor = new Donor(
                                         reader["name"].ToString(),
                                         reader["mobile"].ToString(),
                                         reader["address_line1"].ToString(),
                                         reader["city"].ToString(),
                                         reader["governorate"].ToString());
+                donor.id = int.Parse(reader["id"].ToString());
                 donor.addressLine2 = reader["address_line2"].ToString();
                 Donors.Add(donor);
             }
@@ -81,20 +83,21 @@ namespace charity_management_system.Repositories
             
         public Donor findByID(string id)
         {
-            command.CommandText = "select * from donor where id=:donorID";
+            command.CommandText = "select * from donor where id=:donor_id";
             command.CommandType = System.Data.CommandType.Text;
-            command.Parameters.Add("donorID", id);
+            command.Parameters.Add("donor_id", id);
     
             OracleDataReader reader = command.ExecuteReader();
             Donor foundDonor;
             if (reader.Read())
             {
-                foundDonor = new Donor(int.Parse(reader["id"].ToString()),
+                foundDonor = new Donor(
                                         reader["name"].ToString(),
                                         reader["mobile"].ToString(),
                                         reader["address_line1"].ToString(),
                                         reader["city"].ToString(),
                                         reader["governorate"].ToString());
+                foundDonor.id = int.Parse(reader["id"].ToString());
                 foundDonor.addressLine2 = reader["address_line2"].ToString();
             }
             else
@@ -128,9 +131,9 @@ namespace charity_management_system.Repositories
 
         public bool update(Donor newModel)
         {
-            command.CommandText = "update donor set name =:name, mobile =:mobile, address_line1 =:address_line1, address_line2 =:address_line2, city =:city,  governorate =:governorate";
+            command.CommandText = "update donor set name =:name, mobile =:mobile, address_line1 =:address_line1, address_line2 =:address_line2, city =:city, governorate =:governorate where id =: donor_id";
             command.CommandType = System.Data.CommandType.Text;
-          
+            command.Parameters.Add("donor_id", newModel.id);
             command.Parameters.Add("name", newModel.name);
             command.Parameters.Add("mobile", newModel.mobile);
             command.Parameters.Add("address_line1", newModel.addressLine1);
