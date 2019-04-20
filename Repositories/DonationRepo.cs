@@ -78,28 +78,8 @@ namespace charity_management_system.Repositories {
             return donations;
         }
 
-        public Donation findByID (int campaign_id, int donor_id, DateTime donationDate) {
-            command.CommandText = "select * from donation where campaign_id = :campaign_id and donor_id = donor_id and donation_date = donationDate";
-            command.CommandType = CommandType.Text;
-            command.Parameters.Add ("campaign_id", campaign_id);
-            command.Parameters.Add ("donor_id", donor_id);
-            command.Parameters.Add ("donation_date", donationDate);
-
-            OracleDataReader reader = command.ExecuteReader ();
-            List<Donation> donations = new List<Donation> ();
-            while (reader.Read ()) {
-                Donation donation = new Donation {
-                    // date: reader["donation_date"],
-                    type : reader["donation_type"].ToString (),
-                    value : int.Parse (reader["value"].ToString ()),
-                    campaign : new Campaign (int.Parse (reader["campaign_id"].ToString ())),
-                    donor : new Donor (int.Parse (reader["donor_id"].ToString ()))
-                };
-
-                donations.Add (donation);
-            }
-            reader.Close ();
-            return donations;
+        public Donation findByID (string id) {
+            throw new NotImplementedException ();
         }
 
         public Donation save (Donation model) {
