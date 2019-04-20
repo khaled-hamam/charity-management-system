@@ -10,7 +10,7 @@ namespace charity_management_system.Models
     {
         public bool currentlyWorking;
 
-        public Volunteer(int SSN, String mobile, String Name, String addressLine1, String city, String governorate, int branchID, bool currentlyWorking) : base(SSN, mobile, Name, addressLine1, city, governorate)
+        public Volunteer(String SSN, String mobile, String Name, String addressLine1, String city, String governorate, int branchID, bool currentlyWorking) : base(SSN, mobile, Name, addressLine1, city, governorate)
         {
             this.currentlyWorking = currentlyWorking;
         }

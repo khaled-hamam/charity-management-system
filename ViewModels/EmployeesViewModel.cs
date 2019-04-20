@@ -17,8 +17,8 @@ namespace charity_management_system.ViewModels
 
         public EmployeesViewModel()
         {
-            PaidEmployeeRepo per = new PaidEmployeeRepo();
-            per.findAll();
+           // PaidEmployeeRepo per = new PaidEmployeeRepo();
+           // per.findAll();
             _employees.Add(new Employee
             {
                 name = "Karim"
