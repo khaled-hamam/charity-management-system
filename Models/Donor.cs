@@ -4,10 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace charity_management_system.Models
-{
-    class Donor
-    {
+namespace charity_management_system.Models {
+    class Donor {
         public int id;
         public String name;
         public String mobile;
@@ -16,14 +14,17 @@ namespace charity_management_system.Models
         public String governorate;
         public String city;
 
-        public Donor(int id, String name, String mobile, String address_line1, String city, String governorate)
-        {
+        public Donor (int id, String name, String mobile, String address_line1, String city, String governorate) {
             this.id = id;
             this.name = name;
             this.mobile = mobile;
             this.addressLine1 = address_line1;
             this.city = city;
             this.governorate = governorate;
+        }
+
+        public Donor (int id) {
+            this.id = id;
         }
     }
 }
