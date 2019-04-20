@@ -12,11 +12,15 @@ namespace charity_management_system.ViewModels
        
         public HomeViewModel()
         {
-
+            ActivateItem(new EmployeesViewModel());
         }
-        public void LoadEmployeePage()
+        public void LoadEmployeesPage()
         {
             ActivateItem(new EmployeesViewModel());
+        }
+        public void LoadDepartmentsPage()
+        {
+            ActivateItem(new DepartmentsViewModel());
         }
     }
 }

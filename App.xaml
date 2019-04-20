@@ -38,7 +38,23 @@
                     </Trigger>
                 </Style.Triggers>
             </Style>
-
+            
+            <Style x:Key="NavigateButtons" BasedOn="{StaticResource MaterialDesignRaisedDarkButton}" TargetType="{x:Type Button}">
+                <Setter Property="Height" Value="35" />
+                <Setter Property="HorizontalContentAlignment" Value="Center" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="Foreground" Value="White" />
+                <Setter Property="FontWeight" Value="Medium" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="FontFamily" Value="Arial" />
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="BorderThickness" Value="0" />
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+            
             <Style x:Key="SettingsButton" BasedOn="{StaticResource MaterialDesignFloatingActionMiniButton}" TargetType="{x:Type Button}">
                 <Setter Property="Foreground" Value="{StaticResource LightText}" />
                 <Setter Property="Margin" Value="0 20" />
