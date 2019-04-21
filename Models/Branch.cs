@@ -16,7 +16,6 @@ namespace charity_management_system.Models
         public Branch() { }
         public Branch(String line1, String city, String governorate)
         {
-            this.id = 0;
             this.addressLine1 = line1;
             this.addressLine2= "";
             this.governorate = governorate;

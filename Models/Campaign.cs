@@ -18,7 +18,6 @@ namespace charity_management_system.Models {
         }
 
         public Campaign (String name, DateTime startDate, DateTime endDate) {
-            this.id = 0;
             this.name = name;
             this.startDate = startDate;
             this.endDate = endDate;
