@@ -90,11 +90,16 @@
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\PaidEmployee.cs" />
     <Compile Include="Models\Volunteer.cs" />
+    <Compile Include="Repositories\DepartmentRepo.cs" />
     <Compile Include="Repositories\DonationRepo.cs" />
     <Compile Include="Repositories\DonorRepo.cs" />
     <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Repositories\PaidEmployeeRepo.cs" />
     <Compile Include="Utils\DBManager.cs" />
+    <Page Include="Views\Components\EmployeeCardView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\DepartmentsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -112,8 +117,12 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ViewModels\DepartmentsViewModel.cs" />
+    <Compile Include="ViewModels\EmployeeCardViewModel.cs" />
     <Compile Include="ViewModels\EmployeesViewModel.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />
+    <Compile Include="Views\Components\EmployeeCardView.xaml.cs">
+      <DependentUpon>EmployeeCardView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\DepartmentsView.xaml.cs">
       <DependentUpon>DepartmentsView.xaml</DependentUpon>
     </Compile>

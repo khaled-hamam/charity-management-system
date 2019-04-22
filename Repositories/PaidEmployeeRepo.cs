@@ -50,7 +50,7 @@ namespace charity_management_system.Repositories
             {
                 PaidEmployee paidEmployee = new PaidEmployee
                 {
-                    SSN = int.Parse(reader["ssn"].ToString()),
+                    SSN = reader["ssn"].ToString(),
                     name = reader["name"].ToString(),
                     mobile = reader["mobile"].ToString(),
                     birthDate = Convert.ToDateTime(reader["birth_date"]),
@@ -94,7 +94,7 @@ namespace charity_management_system.Repositories
             if (reader.Read()) {
                 paidEmployee = new PaidEmployee
                 {
-                    SSN = int.Parse(reader["ssn"].ToString()),
+                    SSN = reader["ssn"].ToString(),
                     name = reader["name"].ToString(),
                     mobile = reader["mobile"].ToString(),
                     birthDate = Convert.ToDateTime(reader["birth_date"]),

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using charity_management_system.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
