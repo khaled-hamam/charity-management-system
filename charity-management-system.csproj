@@ -96,6 +96,10 @@
     <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Repositories\PaidEmployeeRepo.cs" />
     <Compile Include="Utils\DBManager.cs" />
+    <Page Include="Views\AddEmployeeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Components\EmployeeCardView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -120,6 +124,9 @@
     <Compile Include="ViewModels\EmployeeCardViewModel.cs" />
     <Compile Include="ViewModels\EmployeesViewModel.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />
+    <Compile Include="Views\AddEmployeeView.xaml.cs">
+      <DependentUpon>AddEmployeeView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Components\EmployeeCardView.xaml.cs">
       <DependentUpon>EmployeeCardView.xaml</DependentUpon>
     </Compile>
