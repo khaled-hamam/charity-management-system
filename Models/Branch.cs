@@ -14,9 +14,9 @@ namespace charity_management_system.Models
         public String governorate;
         public String city;
         public Branch() { }
-        public Branch(int id, String line1, String city, String governorate)
+        public Branch(String line1, String city, String governorate)
         {
-            this.id = id;
+            this.id = 0;
             this.addressLine1 = line1;
             this.addressLine2= "";
             this.governorate = governorate;

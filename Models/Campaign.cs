@@ -17,8 +17,8 @@ namespace charity_management_system.Models {
             this.id = id;
         }
 
-        public Campaign (int id, String name, DateTime startDate, DateTime endDate) {
-            this.id = id;
+        public Campaign (String name, DateTime startDate, DateTime endDate) {
+            this.id = 0;
             this.name = name;
             this.startDate = startDate;
             this.endDate = endDate;
