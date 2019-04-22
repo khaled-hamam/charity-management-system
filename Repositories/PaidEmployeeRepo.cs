@@ -143,9 +143,29 @@ namespace charity_management_system.Repositories
             return null;
         }
 
-        public bool update(PaidEmployee newModel)
+        public bool update(PaidEmployee Model)
         {
-            throw new NotImplementedException();
+            command.CommandText = "UPDATE_PAID_EMPLOYEE";
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.Add("ssn", Model.SSN);
+            command.Parameters.Add("name", Model.name);
+            command.Parameters.Add("mobile", Model.mobile);
+            command.Parameters.Add("birth_date", Model.birthDate);
+            command.Parameters.Add("gender", Model.gender);
+            command.Parameters.Add("address_line1", Model.addressLine1);
+            command.Parameters.Add("address_line2", Model.addressLine2);
+            command.Parameters.Add("city", Model.city);
+            command.Parameters.Add("governorate", Model.governorate);
+            command.Parameters.Add("email", Model.email);
+            command.Parameters.Add("branch_id", Model.branch.id);
+            command.Parameters.Add("Department_name", Model.department.name);
+            int ret = command.ExecuteNonQuery();
+            if (ret != -1)
+            {
+                return true;
+            }
+            return false;
+
         }
     }
 }
