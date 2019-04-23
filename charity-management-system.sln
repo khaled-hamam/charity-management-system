@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2027
+VisualStudioVersion = 15.0.26228.4
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "charity-management-system", "charity-management-system.csproj", "{C890BA71-A575-4936-820C-EF6A3FF71617}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "charity-console-test", "..\charity-console-test\charity-console-test.csproj", "{7328AFA6-61A0-44C5-BB51-F910C082BDCD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "charity-console-test", "..\charity-console-test\charity-console-test.csproj", "{8481D56C-12E0-402C-80F9-3F929F79661C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,14 +23,14 @@ Global
 		{C890BA71-A575-4936-820C-EF6A3FF71617}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C890BA71-A575-4936-820C-EF6A3FF71617}.Release|x64.ActiveCfg = Release|Any CPU
 		{C890BA71-A575-4936-820C-EF6A3FF71617}.Release|x64.Build.0 = Release|Any CPU
-		{7328AFA6-61A0-44C5-BB51-F910C082BDCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7328AFA6-61A0-44C5-BB51-F910C082BDCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7328AFA6-61A0-44C5-BB51-F910C082BDCD}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{7328AFA6-61A0-44C5-BB51-F910C082BDCD}.Debug|x64.Build.0 = Debug|Any CPU
-		{7328AFA6-61A0-44C5-BB51-F910C082BDCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7328AFA6-61A0-44C5-BB51-F910C082BDCD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7328AFA6-61A0-44C5-BB51-F910C082BDCD}.Release|x64.ActiveCfg = Release|Any CPU
-		{7328AFA6-61A0-44C5-BB51-F910C082BDCD}.Release|x64.Build.0 = Release|Any CPU
+		{8481D56C-12E0-402C-80F9-3F929F79661C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8481D56C-12E0-402C-80F9-3F929F79661C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8481D56C-12E0-402C-80F9-3F929F79661C}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{8481D56C-12E0-402C-80F9-3F929F79661C}.Debug|x64.Build.0 = Debug|Any CPU
+		{8481D56C-12E0-402C-80F9-3F929F79661C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8481D56C-12E0-402C-80F9-3F929F79661C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8481D56C-12E0-402C-80F9-3F929F79661C}.Release|x64.ActiveCfg = Release|Any CPU
+		{8481D56C-12E0-402C-80F9-3F929F79661C}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

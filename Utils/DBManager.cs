@@ -15,7 +15,7 @@ namespace charity_management_system.Utils
         {
             get
             {
-                return $"Data source =  {_config["DataSource"]}; User Id = {_config["UserId"]}; Password = {_config["Password"]};";
+                return $"Data source = {_config["DataSource"]}; User Id = {_config["UserId"]}; Password = {_config["Password"]};";
             }
         }
  
@@ -44,8 +44,9 @@ namespace charity_management_system.Utils
             _config.Add("DataSource", $"(DESCRIPTION = (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)" +
                 $"(HOST = {_config["HOST"]})(PORT = {_config["PORT"]}))) (CONNECT_DATA = (SERVER = DEDICATED)(SERVICE_NAME = orcl)))");
             this.connection = new OracleConnection(connectionString);
-            //this.connection.Open();
+            this.connection.Open();
         }
+
         ~DBManager() {
             this.connection.Dispose();
         }
