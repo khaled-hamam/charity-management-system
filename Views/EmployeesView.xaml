@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:charity_management_system.Views"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:system="clr-namespace:System;assembly=mscorlib"
+             xmlns:Components="clr-namespace:charity_management_system.Views.Components"
              mc:Ignorable="d" 
             d:DesignHeight="540" d:DesignWidth="640">
     <Grid Background="{StaticResource GreyBG}">
@@ -40,9 +41,32 @@
                 </Button>
             </Grid>
         </Grid>
-        <DataGrid Grid.Row="1" Background="Gray" x:Name="Employees">
-
-        </DataGrid>
-        <Button Style="{StaticResource NavigateButtons}" VerticalAlignment="Bottom" Grid.Row="1">Save</Button>
+        <ScrollViewer Grid.Row="1">
+            <Grid>
+                <ItemsControl x:Name="FilteredEmployees">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Components:EmployeeCardView />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Name="employeeList" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 10 0 0" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+             </ItemsControl>
+        </Grid>
+    </ScrollViewer>
+        <Button 
+         Margin="0 0 35 20"
+         Background="{StaticResource PrimaryColor}"
+         BorderThickness="0"
+         BorderBrush="Transparent"
+         Grid.Row="1"
+         x:Name="OpenAddEmployee"
+        materialDesign:ShadowAssist.ShadowDepth="Depth1"
+         Style="{StaticResource MaterialDesignFloatingActionButton}"                              
+          VerticalAlignment="Bottom" HorizontalAlignment="Right">
+        </Button>
     </Grid>
 </UserControl>

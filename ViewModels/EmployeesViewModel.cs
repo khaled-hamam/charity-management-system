@@ -2,6 +2,7 @@
 using charity_management_system.Models;
 using charity_management_system.Repositories;
 using charity_management_system.Utils;
+using charity_management_system.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,20 +13,25 @@ namespace charity_management_system.ViewModels
 {
     public class EmployeesViewModel : Screen
     {
-        private BindableCollection<Employee> _employees = new BindableCollection<Employee>();
-        public BindableCollection<Employee> Employees { get; set; }
+        private BindableCollection<EmployeeCardViewModel> _employees = new BindableCollection<EmployeeCardViewModel>();
+        public BindableCollection<EmployeeCardViewModel> FilteredEmployees { get; set; }
 
         public EmployeesViewModel()
         {
-           // PaidEmployeeRepo per = new PaidEmployeeRepo();
-           // per.findAll();
-            _employees.Add(new Employee
-            {
-                name = "Karim"
-            });
-            Employees = new BindableCollection<Employee>(_employees); 
-        }
+            _employees = new BindableCollection<EmployeeCardViewModel>();
+            _employees.Add(
+                new EmployeeCardViewModel
+                {
+                    Role = "paid"
+                }
+                );
 
-        
+            FilteredEmployees = new BindableCollection<EmployeeCardViewModel>(_employees);
+        }
+        public void openAddEmployee()
+        {
+            AddEmployeeView addEmployee = new AddEmployeeView();
+            addEmployee.Show();
+        }
     }
 }

@@ -37,12 +37,14 @@ namespace charity_management_system.Utils
 
         private void config()
         {
-            _config.Add("DataSource", "orcl");
-            _config.Add("UserId", "hr");
-            _config.Add("Password", "hr");
-
+            _config.Add("UserId", "charity_dba");
+            _config.Add("Password", "charity_dba");
+            _config.Add("HOST", "0.tcp.ngrok.io");
+            _config.Add("PORT", "18176");
+            _config.Add("DataSource", $"(DESCRIPTION = (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)" +
+                $"(HOST = {_config["HOST"]})(PORT = {_config["PORT"]}))) (CONNECT_DATA = (SERVER = DEDICATED)(SERVICE_NAME = orcl)))");
             this.connection = new OracleConnection(connectionString);
-            this.connection.Open();
+            //this.connection.Open();
         }
         ~DBManager() {
             this.connection.Dispose();
