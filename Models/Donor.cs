@@ -14,6 +14,7 @@ namespace charity_management_system.Models {
         public String governorate;
         public String city;
 
+        public Donor() { }
         public Donor (String name, String mobile, String address_line1, String city, String governorate) {
             this.name = name;
             this.mobile = mobile;
