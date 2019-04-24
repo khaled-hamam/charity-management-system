@@ -1,4 +1,6 @@
-﻿using charity_management_system.ViewModels;
+﻿using charity_management_system.DataStores;
+using charity_management_system.Models;
+using charity_management_system.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +26,11 @@ namespace charity_management_system.Views
         public EmployeesView()
         {
             InitializeComponent();
+        }
+        private void addEmployee(object sender, RoutedEventArgs e)
+        {
+            EmployeeDataStore.instance.data.Add(new PaidEmployee() { SSN = nameTextBox.Text });
+            
         }
     }
 }
