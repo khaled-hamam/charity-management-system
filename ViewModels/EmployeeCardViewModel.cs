@@ -1,4 +1,5 @@
 ﻿using Caliburn.Micro;
+using charity_management_system.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,11 @@ namespace charity_management_system.ViewModels
 {
     public class EmployeeCardViewModel : Screen
     {
-        public String Role { get; set; }
+        public PaidEmployee employee { get; set; }
+
+        public EmployeeCardViewModel(PaidEmployee employee)
+        {
+            this.employee = employee;
+        }
     }
 }

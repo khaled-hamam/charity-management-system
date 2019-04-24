@@ -31,7 +31,7 @@
                     </Grid.RowDefinitions>
                     <StackPanel Grid.Column="0">
                         <TextBlock Style="{StaticResource InfoTitle}">Role</TextBlock>
-                        <TextBlock Text="{Binding Role}" Style="{StaticResource InfoValue}"/>
+                        <TextBlock Text="{Binding employee.SSN}" Style="{StaticResource InfoValue}"/>
                     </StackPanel>
                     <StackPanel Grid.Column="1">
                         <TextBlock Style="{StaticResource InfoTitle}">Department</TextBlock>
