@@ -53,7 +53,8 @@ namespace charity_management_system.Repositories
             int i = 0;
             foreach (DataRow row in ds.Tables[0].Rows)
             {
-                departments[i].name = row[0].ToString();
+                Department dep = new Department(row["name"].ToString());
+                departments.Add(dep);
                 i++;
             }
             return departments;
