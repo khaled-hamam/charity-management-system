@@ -19,8 +19,8 @@
             Foreground="{StaticResource DarkText}"
             materialDesign:ShadowAssist.ShadowDepth="Depth1">
             <StackPanel VerticalAlignment="Center">
-                <TextBlock FontSize="24" FontWeight="Bold"/>
-                <TextBlock FontSize="24" FontWeight="Bold"/>
+                <TextBlock  Text="{Binding employee.name}" FontSize="24" FontWeight="Bold"/>
+                <TextBlock  Text="{Binding Role}" FontSize="24" FontWeight="Bold"/>
                 <Grid Margin="0 5">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition />
@@ -32,6 +32,7 @@
                         <RowDefinition />
                         <RowDefinition />
                     </Grid.RowDefinitions>
+                    
                     <StackPanel Grid.Column="0" Grid.Row="0">
                         <TextBlock Style="{StaticResource InfoTitle}">Department</TextBlock>
                         <TextBlock Text="{Binding employee.department.name}" Style="{StaticResource InfoValue}"/>

@@ -18,19 +18,17 @@ namespace charity_management_system.ViewModels
         {
             _repository = new PaidEmployeeRepo();
             FilteredEmployees = new ObservableCollection<EmployeeCardViewModel>();
+            FilteredEmployees = Mapper.toViewModel<PaidEmployee, EmployeeCardViewModel>(
+                EmployeeDataStore.instance.data as ObservableCollection<PaidEmployee>,
+                    (employee) => new EmployeeCardViewModel(employee));
 
-            EmployeeDataStore.instance.data.CollectionChanged += new NotifyCollectionChangedEventHandler((obj, e) => {
+            EmployeeDataStore.instance.data.CollectionChanged += new NotifyCollectionChangedEventHandler((obj, e) =>
+            {
                 FilteredEmployees = Mapper.toViewModel<PaidEmployee, EmployeeCardViewModel>(
-                    obj as ObservableCollection<PaidEmployee>, 
+                    obj as ObservableCollection<PaidEmployee>,
                     (employee) => new EmployeeCardViewModel(employee)
                 );
             });
-        }
-
-        public void openAddEmployee()
-        {
-            AddEmployeeView addEmployee = new AddEmployeeView();
-            addEmployee.Show();
         }
     }
 }
