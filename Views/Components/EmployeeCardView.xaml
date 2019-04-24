@@ -20,6 +20,7 @@
             materialDesign:ShadowAssist.ShadowDepth="Depth1">
             <StackPanel VerticalAlignment="Center">
                 <TextBlock FontSize="24" FontWeight="Bold"/>
+                <TextBlock FontSize="24" FontWeight="Bold"/>
                 <Grid Margin="0 5">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition />
@@ -29,18 +30,40 @@
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition />
+                        <RowDefinition />
                     </Grid.RowDefinitions>
-                    <StackPanel Grid.Column="0">
-                        <TextBlock Style="{StaticResource InfoTitle}">Role</TextBlock>
-                        <TextBlock Text="{Binding employee.SSN}" Style="{StaticResource InfoValue}"/>
-                    </StackPanel>
-                    <StackPanel Grid.Column="1">
+                    <StackPanel Grid.Column="0" Grid.Row="0">
                         <TextBlock Style="{StaticResource InfoTitle}">Department</TextBlock>
-                        <TextBlock Text="{Binding Department}" Style="{StaticResource InfoValue}"/>
+                        <TextBlock Text="{Binding employee.department.name}" Style="{StaticResource InfoValue}"/>
                     </StackPanel>
-                    <StackPanel Grid.Column="2">
+                    <StackPanel Grid.Column="1" Grid.Row="0">
+                        <TextBlock Style="{StaticResource InfoTitle}">Mobile</TextBlock>
+                        <TextBlock Text="{Binding employee.mobile}" Style="{StaticResource InfoValue}"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="2" Grid.Row="0">
+                        <TextBlock Style="{StaticResource InfoTitle}">Gender</TextBlock>
+                        <TextBlock Text="{Binding employee.gender}" Style="{StaticResource InfoValue}"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="3" Grid.Row="0">
+                        <TextBlock Style="{StaticResource InfoTitle}">city</TextBlock>
+                        <TextBlock Text="{Binding employee.city}" Style="{StaticResource InfoValue}"/>
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="0" Grid.Row="1">
+                        <TextBlock Style="{StaticResource InfoTitle}">Line1</TextBlock>
+                        <TextBlock Text="{Binding employee.addressLine1}" Style="{StaticResource InfoValue}"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" Grid.Row="1">
+                        <TextBlock Style="{StaticResource InfoTitle}">Line2</TextBlock>
+                        <TextBlock Text="{Binding employee.addressLine2}" Style="{StaticResource InfoValue}"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="2" Grid.Row="1">
+                        <TextBlock Style="{StaticResource InfoTitle}">Governorate</TextBlock>
+                        <TextBlock Text="{Binding employee.governorate}" Style="{StaticResource InfoValue}"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="3" Grid.Row="1">
                         <TextBlock Style="{StaticResource InfoTitle}">Salary</TextBlock>
-                        <TextBlock Text="{Binding Salary}" Style="{StaticResource InfoValue}"/>
+                        <TextBlock Text="{Binding employee.salary}" Style="{StaticResource InfoValue}"/>
                     </StackPanel>
                 </Grid>
             </StackPanel>

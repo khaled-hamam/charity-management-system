@@ -29,7 +29,8 @@ namespace charity_management_system.Views
         }
         private void addEmployee(object sender, RoutedEventArgs e)
         {
-            EmployeeDataStore.instance.data.Add(new PaidEmployee() { SSN = nameTextBox.Text });
+            EmployeeDataStore.instance.data.Add(new PaidEmployee() { name = nameTextBox.Text });
+            
             
         }
     }
