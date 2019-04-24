@@ -7,6 +7,7 @@ using Oracle.DataAccess.Types;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 
 namespace charity_management_system.Repositories
 {
@@ -42,12 +43,83 @@ namespace charity_management_system.Repositories
 
         public List<Volunteer> findAll()
         {
-            throw new NotImplementedException();
+            command.CommandText = "find_all_volunteers";
+            command.CommandType = System.Data.CommandType.StoredProcedure;
+            command.Parameters.Add("volunteer", OracleDbType.RefCursor, ParameterDirection.Output);
+            OracleDataReader reader = command.ExecuteReader();
+            List<Volunteer> volunteers = new List<Volunteer>();
+
+            while (reader.Read())
+            {
+                Volunteer volunteer = new Volunteer
+                {
+                    SSN = reader["ssn"].ToString(),
+                    name = reader["name"].ToString(),
+                    mobile = reader["mobile"].ToString(),
+                    birthDate = Convert.ToDateTime(reader["birth_date"]),
+                    gender = char.Parse(reader["gender"].ToString()),
+                    addressLine1 = reader["address_line1"].ToString(),
+                    addressLine2 = reader["address_line2"].ToString(),
+                    city = reader["city"].ToString(),
+                    governorate = reader["governorate"].ToString(),
+                    email = reader["email"].ToString(),
+                    branch = new Branch { id = int.Parse(reader["branch_id"].ToString()) },
+                    currentlyWorking = bool.Parse(reader["is_currently_working"].ToString())
+                };
+                volunteers.Add(volunteer);
+            }
+            reader.Close();
+            return volunteers;
+
         }
 
         public Volunteer findByID(string id)
         {
-            throw new NotImplementedException();
+            command.CommandText = "find_volunteer_by_id";
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.Add("emp_ssn", id);
+            command.Parameters.Add("ssn", ParameterDirection.Output);
+            command.Parameters.Add("name", ParameterDirection.Output);
+            command.Parameters.Add("mobile", ParameterDirection.Output);
+            command.Parameters.Add("birth_date", ParameterDirection.Output);
+            command.Parameters.Add("gender", ParameterDirection.Output);
+            command.Parameters.Add("address_line1", ParameterDirection.Output);
+            command.Parameters.Add("address_line2", ParameterDirection.Output);
+            command.Parameters.Add("city", ParameterDirection.Output);
+            command.Parameters.Add("governorate", ParameterDirection.Output);
+            command.Parameters.Add("email", ParameterDirection.Output);
+            command.Parameters.Add("branch_id", ParameterDirection.Output);
+            command.Parameters.Add("is_currently_working", ParameterDirection.Output);
+
+            OracleDataReader reader = command.ExecuteReader();
+            Volunteer volunteer;
+            if (reader.Read())
+            {
+                volunteer = new Volunteer
+                {
+                    SSN = reader["ssn"].ToString(),
+                    name = reader["name"].ToString(),
+                    mobile = reader["mobile"].ToString(),
+                    birthDate = Convert.ToDateTime(reader["birth_date"]),
+                    gender = char.Parse(reader["gender"].ToString()),
+                    addressLine1 = reader["address_line1"].ToString(),
+                    addressLine2 = reader["address_line2"].ToString(),
+                    city = reader["city"].ToString(),
+                    governorate = reader["governorate"].ToString(),
+                    email = reader["email"].ToString(),
+                    branch = new Branch { id = int.Parse(reader["branch_id"].ToString()) },
+                    currentlyWorking = bool.Parse(reader["is_currently_working"].ToString())
+                };
+            }
+            else
+            {
+                reader.Close();
+                return null;
+            }
+            reader.Close();
+            return volunteer;
+
+
         }
 
         public Volunteer save(Volunteer model)
