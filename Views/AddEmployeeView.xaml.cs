@@ -32,7 +32,7 @@ namespace charity_management_system.Views
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            EmployeeDataStore.instance.data.Add(new PaidEmployee());
+            EmployeeDataStore.instance.data.Add(new PaidEmployee() { SSN = "Testing 2" } );
         }
     }
 }
