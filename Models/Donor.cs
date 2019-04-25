@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace charity_management_system.Models {
     public class Donor {
         public int id;
-        public String name;
+        public String name { get; set; }
         public String mobile;
         public String addressLine1;
         public String addressLine2;

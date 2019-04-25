@@ -26,7 +26,7 @@
                     <Button HorizontalAlignment="Center" Style="{StaticResource NavigateButtons}" x:Name="LoadDepartmentsPage" >Departments</Button>
                     <Button HorizontalAlignment="Center" Style="{StaticResource NavigateButtons}">Campains</Button>
                     <Button HorizontalAlignment="Center" Style="{StaticResource NavigateButtons}">Branches</Button>
-                    <Button HorizontalAlignment="Center" Style="{StaticResource NavigateButtons}">Donors</Button>
+                    <Button HorizontalAlignment="Center" Style="{StaticResource NavigateButtons}" x:Name="LoadDonorsPage">Donors</Button>
                     <Button HorizontalAlignment="Center" Style="{StaticResource NavigateButtons}">Reports</Button>
                 </ListView>
                 <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Center">

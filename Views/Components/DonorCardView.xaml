@@ -19,8 +19,6 @@
             Foreground="{StaticResource DarkText}"
             materialDesign:ShadowAssist.ShadowDepth="Depth1">
             <StackPanel VerticalAlignment="Center">
-                <TextBlock  Text="{Binding employee.name}" FontSize="24" FontWeight="Bold"/>
-                <TextBlock  Text="{Binding Role}" FontSize="24" FontWeight="Bold"/>
                 <Grid Margin="0 5">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition />

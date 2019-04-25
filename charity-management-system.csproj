@@ -99,6 +99,7 @@
     </ApplicationDefinition>
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="DataStores\BaseDataStore.cs" />
+    <Compile Include="DataStores\DonorDataStore.cs" />
     <Compile Include="DataStores\EmployeeDataStore.cs" />
     <Compile Include="Models\Branch.cs" />
     <Compile Include="Models\Department.cs" />
@@ -107,6 +108,7 @@
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\PaidEmployee.cs" />
     <Compile Include="Models\Volunteer.cs" />
+    <Compile Include="ViewModels\BranchViewModel.cs" />
     <Compile Include="Repositories\BranchRepo.cs" />
     <Compile Include="Repositories\DepartmentRepo.cs" />
     <Compile Include="Repositories\DonationRepo.cs" />
@@ -119,6 +121,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\BranchView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Components\DonorCardView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\Components\EmployeeCardView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -126,6 +136,10 @@
     <Page Include="Views\DepartmentsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DonorView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\EmployeesView.xaml">
       <SubType>Designer</SubType>
@@ -141,17 +155,28 @@
     </Compile>
     <Compile Include="Utils\Mapper.cs" />
     <Compile Include="ViewModels\DepartmentsViewModel.cs" />
+    <Compile Include="ViewModels\DonorCardViewModel.cs" />
+    <Compile Include="ViewModels\DonorViewModel.cs" />
     <Compile Include="ViewModels\EmployeeCardViewModel.cs" />
     <Compile Include="ViewModels\EmployeesViewModel.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />
     <Compile Include="Views\AddEmployeeView.xaml.cs">
       <DependentUpon>AddEmployeeView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\BranchView.xaml.cs">
+      <DependentUpon>BranchView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Components\DonorCardView.xaml.cs">
+      <DependentUpon>DonorCardView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Components\EmployeeCardView.xaml.cs">
       <DependentUpon>EmployeeCardView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\DepartmentsView.xaml.cs">
       <DependentUpon>DepartmentsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DonorView.xaml.cs">
+      <DependentUpon>DonorView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\EmployeesView.xaml.cs">
       <DependentUpon>EmployeesView.xaml</DependentUpon>
