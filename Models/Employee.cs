@@ -13,7 +13,6 @@ namespace charity_management_system.Models
         public String addressLine2 { get; set; }
         public String governorate { get; set; }
         public String city { get; set; }
-        public DateTime startDate { get; set; }
         public String email { get; set; }
         public Branch branch { get; set; }
         public Employee() { }
@@ -27,9 +26,7 @@ namespace charity_management_system.Models
             this.addressLine2 = "";
             this.city = city;
             this.governorate = governorate;
-            this.startDate = System.DateTime.Today;
             this.email = "";
-
         }
     }
 }

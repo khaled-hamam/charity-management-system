@@ -72,17 +72,18 @@
                 <StackPanel>
                     <StackPanel Margin="16">
                         <TextBox x:Name="nameTextBox" materialDesign:HintAssist.Hint="Employee Name"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 8 0 0" HorizontalAlignment="Left" Width="200" />
-                        <TextBox Text="{Binding EmployeeAddressTextBox}" materialDesign:HintAssist.Hint="Employee Address"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0 8 0 0" HorizontalAlignment="Left"  Width="200" x:Name="EmployeeAddressTextBox" />
-                        <DatePicker SelectedDate="{Binding EmployeeDatePicker}" materialDesign:HintAssist.Hint="Employee BirthDate"  Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Margin="0 15 0 0" HorizontalAlignment="Left"  Width="200" x:Name="EmployeeBirthDatePicker" />
-                        <TextBox Text="{Binding EmployeeSalaryTextBox}" materialDesign:HintAssist.Hint="Employee salary"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0 8 0 0" HorizontalAlignment="Left"  Width="200" x:Name="EmployeeSalaryTextBox" />
-                        <ComboBox 
-                                        materialDesign:HintAssist.Hint="Employee Department"  
-                                        SelectedItem="{Binding EmployeeDepartment}"
-                                        IsEditable="True" Style="{StaticResource MaterialDesignFloatingHintComboBox}"  
-                                        Margin="0 8 0 0" 
-                                        HorizontalAlignment="Left"  
-                                        Width="200" 
-                                        x:Name="EmployeeDepartmentComboBox" />
+                        <TextBox x:Name="mobileTextBox" materialDesign:HintAssist.Hint="Employee Mobile"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0 8 0 0" HorizontalAlignment="Left"  Width="200" />
+                        <TextBox x:Name="emailTextBox" materialDesign:HintAssist.Hint="Employee email"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0 8 0 0" HorizontalAlignment="Left"  Width="200" />
+                        <DatePicker x:Name="birthdayBox" materialDesign:HintAssist.Hint="Employee BirthDate"  Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Margin="0 15 0 0" HorizontalAlignment="Left"  Width="200"/>
+                        <ComboBox materialDesign:HintAssist.Hint="Gender" BorderThickness="0" Background="White" x:Name="employeeGender"  Cursor="Hand"  HorizontalAlignment="Left" Margin="0 15 0 0">
+                            <ComboBoxItem>Male</ComboBoxItem>
+                            <ComboBoxItem>Female</ComboBoxItem>
+                        </ComboBox>
+                        <TextBox x:Name="cityTextBox" materialDesign:HintAssist.Hint="Employee City"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0 8 0 0" HorizontalAlignment="Left"  Width="200" />
+                        <TextBox x:Name="governorateTextBox" materialDesign:HintAssist.Hint="Employee governorate"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0 8 0 0" HorizontalAlignment="Left"  Width="200" />
+                        <TextBox x:Name="line1TextBox" materialDesign:HintAssist.Hint="Address Line1" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0 8 0 0" HorizontalAlignment="Left"  Width="200" />
+                        <TextBox x:Name="line2TextBox" materialDesign:HintAssist.Hint="Address Line2 "  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0 8 0 0" HorizontalAlignment="Left"  Width="200" />
+                        <TextBox x:Name="salaryTextBox" materialDesign:HintAssist.Hint="Employee salary"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0 8 0 0" HorizontalAlignment="Left"  Width="200"/>
                         <ComboBox 
                                         Text="{Binding EmployeeRole}" 
                                         materialDesign:HintAssist.Hint="Employee Role"  
@@ -92,11 +93,24 @@
                                         HorizontalAlignment="Left" 
                                         Width="200" 
                                         x:Name="EmpoloyeeRoleComboBox" >
-                            <ComboBoxItem>paid</ComboBoxItem>
-                            <ComboBoxItem>volunteer</ComboBoxItem>
+                            <ComboBoxItem>Paid Employee</ComboBoxItem>
+                            <ComboBoxItem>Volunteer</ComboBoxItem>
                         </ComboBox>
+                        <ComboBox 
+                                        materialDesign:HintAssist.Hint="Employee Department"  
+                                        IsEditable="True" Style="{StaticResource MaterialDesignFloatingHintComboBox}"  
+                                        Margin="0 8 0 0" 
+                                        HorizontalAlignment="Left"  
+                                        Width="200" 
+                                        x:Name="EmployeeDepartmentComboBox" />
+                        <ComboBox 
+                                        materialDesign:HintAssist.Hint="Employee Branch"  
+                                        IsEditable="True" Style="{StaticResource MaterialDesignFloatingHintComboBox}"  
+                                        Margin="0 8 0 0" 
+                                        HorizontalAlignment="Left"  
+                                        Width="200" 
+                                        x:Name="EmployeeBranchComboBox" />
                     </StackPanel>
-
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
                         <Button Style="{StaticResource MaterialDesignFlatButton}"
                                             IsDefault="True"
