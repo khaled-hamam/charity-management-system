@@ -4,9 +4,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:charity_management_system.Views"
+             xmlns:Components="clr-namespace:charity_management_system.Views.Components"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:system="clr-namespace:System;assembly=mscorlib"
-             xmlns:Components="clr-namespace:charity_management_system.Views.Components"
              mc:Ignorable="d" 
             d:DesignHeight="540" d:DesignWidth="640">
     <Grid Background="{StaticResource GreyBG}">
@@ -46,7 +46,7 @@
                 <ItemsControl x:Name="FilteredEmployees">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <local:VolunteerCardView />
+                            <Components:VolunteerCardView />
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                     <ItemsControl.ItemsPanel>

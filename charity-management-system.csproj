@@ -121,6 +121,12 @@
     <Compile Include="Repositories\VolunteerRepo.cs" />
     <Compile Include="Utils\DBManager.cs" />
     <Compile Include="ViewModels\VolunteerViewModel.cs" />
+    <Compile Include="Views\Components\CampaignCardView.xaml.cs">
+      <DependentUpon>CampaignCardView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Components\VolunteerCardView.xaml.cs">
+      <DependentUpon>VolunteerCardView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\VolunteerView.xaml.cs">
       <DependentUpon>VolunteerView.xaml</DependentUpon>
     </Compile>
@@ -132,6 +138,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Views\Components\CampaignCardView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\Components\DonorCardView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -139,6 +149,10 @@
     <Page Include="Views\Components\EmployeeCardView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Components\VolunteerCardView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\DepartmentsView.xaml">
       <SubType>Designer</SubType>

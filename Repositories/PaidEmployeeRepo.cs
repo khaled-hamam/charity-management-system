@@ -79,49 +79,50 @@ namespace charity_management_system.Repositories
 
         public PaidEmployee findByID(string id)
         {
-            command = new OracleCommand();
-            command.Connection = connection;
-            command.BindByName = true;
-            command.CommandText = "FIND_PAID_EMPLOYEE";
-            command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.Add("emp_ssn", OracleDbType.Varchar2, ParameterDirection.Input).Value = id;
-            command.Parameters.Add("ssn", OracleDbType.Varchar2, ParameterDirection.Output);
-            command.Parameters.Add("name", OracleDbType.Varchar2, ParameterDirection.Output);
-            //command.Parameters.Add("mobile", OracleDbType.Varchar2, 3000000, ParameterDirection.Output);
-            //command.Parameters.Add("birth_date", OracleDbType.Date, ParameterDirection.Output);
-            //command.Parameters.Add("gender", OracleDbType.Char, ParameterDirection.Output);
-            //command.Parameters.Add("address_line1", OracleDbType.Varchar2, 3000000, ParameterDirection.Output);
-            //command.Parameters.Add("address_line2", OracleDbType.Varchar2, 3000000, ParameterDirection.Output);
-            //command.Parameters.Add("city", OracleDbType.Varchar2, 3000000, ParameterDirection.Output);
-            //command.Parameters.Add("governorate", OracleDbType.Varchar2, 3000000, ParameterDirection.Output);
-            //command.Parameters.Add("email", OracleDbType.Varchar2, 3000000, ParameterDirection.Output);
-            //command.Parameters.Add("branch_id", OracleDbType.Decimal, ParameterDirection.Output);
-            //command.Parameters.Add("salary", OracleDbType.Decimal, ParameterDirection.Output);
-            //command.Parameters.Add("department_name", OracleDbType.Varchar2, 3000000, ParameterDirection.Output);
-
-            command.ExecuteNonQuery();
             try
             {
+                command = new OracleCommand();
+                command.Connection = connection;
+                command.BindByName = true;
+                command.CommandText = "FIND_PAID_EMPLOYEE_BY_ID";
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add("emp_ssn", id);
+                command.Parameters.Add("ssn", OracleDbType.Varchar2, 100).Direction = ParameterDirection.Output;
+                command.Parameters.Add("name", OracleDbType.Varchar2, 100).Direction = ParameterDirection.Output;
+                command.Parameters.Add("mobile", OracleDbType.Varchar2, 100).Direction = ParameterDirection.Output;
+                command.Parameters.Add("birth_date", OracleDbType.Date).Direction = ParameterDirection.Output;
+                command.Parameters.Add("gender", OracleDbType.Char, 1).Direction = ParameterDirection.Output;
+                command.Parameters.Add("address_line1", OracleDbType.Varchar2, 100).Direction = ParameterDirection.Output;
+                command.Parameters.Add("address_line2", OracleDbType.Varchar2, 100).Direction = ParameterDirection.Output;
+                command.Parameters.Add("city", OracleDbType.Varchar2, 100).Direction = ParameterDirection.Output;
+                command.Parameters.Add("governorate", OracleDbType.Varchar2, 100).Direction = ParameterDirection.Output;
+                command.Parameters.Add("email", OracleDbType.Varchar2, 100).Direction = ParameterDirection.Output;
+                command.Parameters.Add("branch_id", OracleDbType.Int32).Direction = ParameterDirection.Output;
+                command.Parameters.Add("salary", OracleDbType.Int32).Direction = ParameterDirection.Output;
+                command.Parameters.Add("department_name", OracleDbType.Varchar2, 100).Direction = ParameterDirection.Output;
+
+                command.ExecuteNonQuery();
                 PaidEmployee paidEmployee = new PaidEmployee
                 {
-                    SSN = command.Parameters["ssn"].ToString(),
-                    name = command.Parameters["name"].ToString(),
-                    mobile = command.Parameters["mobile"].ToString(),
-                    birthDate = Convert.ToDateTime(command.Parameters["birth_date"].ToString()),
-                    gender = char.Parse(command.Parameters["gender"].ToString()),
-                    addressLine1 = command.Parameters["address_line1"].ToString(),
-                    addressLine2 = command.Parameters["address_line2"].ToString(),
-                    city = command.Parameters["city"].ToString(),
-                    governorate = command.Parameters["governorate"].ToString(),
-                    email = command.Parameters["email"].ToString(),
-                    salary = float.Parse(command.Parameters["salary"].ToString()),
-                    branch = new Branch { id = int.Parse(command.Parameters["branch_id"].ToString()) },
-                    department = new Department { name = command.Parameters["department_name"].ToString() }
+                    SSN = command.Parameters["ssn"].Value.ToString(),
+                    name = command.Parameters["name"].Value.ToString(),
+                    mobile = command.Parameters["mobile"].Value.ToString(),
+                    birthDate = Convert.ToDateTime(command.Parameters["birth_date"].Value.ToString()),
+                    gender = char.Parse(command.Parameters["gender"].Value.ToString()),
+                    addressLine1 = command.Parameters["address_line1"].Value.ToString(),
+                    addressLine2 = command.Parameters["address_line2"].Value.ToString(),
+                    city = command.Parameters["city"].Value.ToString(),
+                    governorate = command.Parameters["governorate"].Value.ToString(),
+                    email = command.Parameters["email"].Value.ToString(),
+                    salary = float.Parse(command.Parameters["salary"].Value.ToString()),
+                    branch = new Branch { id = int.Parse(command.Parameters["branch_id"].Value.ToString()) },
+                    department = new Department { name = command.Parameters["department_name"].Value.ToString() }
                 };
-            return paidEmployee;
+                return paidEmployee;
             }
-            catch
+            catch(Exception e)
             {
+                Console.WriteLine(e);
                 return null;
             }
 

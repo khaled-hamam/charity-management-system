@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace charity_management_system.Views
+namespace charity_management_system.Views.Components
 {
     /// <summary>
     /// Interaction logic for VolunteerCardView.xaml
