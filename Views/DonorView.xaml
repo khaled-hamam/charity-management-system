@@ -71,9 +71,14 @@
             <Button.CommandParameter>
                 <StackPanel>
                     <StackPanel Margin="16">
-                        <TextBox x:Name="nameTextBox" materialDesign:HintAssist.Hint="Donor Name"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 8 0 0" HorizontalAlignment="Left" Width="200" />
-                        <TextBox Text="{Binding DonorAddressTextBox}" materialDesign:HintAssist.Hint="Donor Address"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0 8 0 0" HorizontalAlignment="Left"  Width="200" x:Name="DonorAddressTextBox" />
+                        <TextBox  Text="{Binding DonorNameTextBox}" x:Name="nameTextBox" materialDesign:HintAssist.Hint="Donor Name"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 8 0 0" HorizontalAlignment="Left" Width="200" />
+                        <TextBox Text="{Binding DonorMobileTextBox}" materialDesign:HintAssist.Hint="Donor Mobile"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0 8 0 0" HorizontalAlignment="Left"  Width="200" x:Name="DonorMobileTextBox" />
+                        <TextBox Text="{Binding DonorAddress1TextBox}" materialDesign:HintAssist.Hint="Donor Address Line 1"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0 8 0 0" HorizontalAlignment="Left"  Width="200" x:Name="DonorAddress1TextBox" />
+                        <TextBox Text="{Binding DonorAddress2TextBox}" materialDesign:HintAssist.Hint="Donor Address Line 2"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0 8 0 0" HorizontalAlignment="Left"  Width="200" x:Name="DonorAddress2TextBox" />
+                        <TextBox Text="{Binding DonorCityTextBox}" materialDesign:HintAssist.Hint="Donor city"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0 8 0 0" HorizontalAlignment="Left"  Width="200" x:Name="DonorCityTextBox" />
+                        <TextBox Text="{Binding DonorgovernorateTextBox}" materialDesign:HintAssist.Hint="Donor governorate"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0 8 0 0" HorizontalAlignment="Left"  Width="200" x:Name="DonorgovernorateTextBox" />
 
+                        
                     </StackPanel>
 
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
