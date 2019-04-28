@@ -101,6 +101,7 @@
     <Compile Include="DataStores\BaseDataStore.cs" />
     <Compile Include="DataStores\DonorDataStore.cs" />
     <Compile Include="DataStores\EmployeeDataStore.cs" />
+    <Compile Include="DataStores\VolunteerDataStore.cs" />
     <Compile Include="Models\Branch.cs" />
     <Compile Include="Models\Department.cs" />
     <Compile Include="Models\Donation.cs" />
@@ -119,10 +120,6 @@
     <Compile Include="Repositories\PaidEmployeeRepo.cs" />
     <Compile Include="Repositories\VolunteerRepo.cs" />
     <Compile Include="Utils\DBManager.cs" />
-    <Page Include="Views\AddEmployeeView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\BranchMasterView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -166,9 +163,6 @@
     <Compile Include="ViewModels\EmployeeCardViewModel.cs" />
     <Compile Include="ViewModels\EmployeesViewModel.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />
-    <Compile Include="Views\AddEmployeeView.xaml.cs">
-      <DependentUpon>AddEmployeeView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\BranchMasterView.xaml.cs">
       <DependentUpon>BranchMasterView.xaml</DependentUpon>
     </Compile>

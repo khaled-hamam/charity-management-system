@@ -1,4 +1,5 @@
 ﻿using Caliburn.Micro;
+using charity_management_system.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,9 @@ namespace charity_management_system.ViewModels
         public HomeViewModel()
         {
             ActivateItem(new EmployeesViewModel());
+
+            PaidEmployeeRepo repo = new PaidEmployeeRepo();
+            // repo.save(new Models.PaidEmployee());
         }
         public void LoadEmployeesPage()
         {

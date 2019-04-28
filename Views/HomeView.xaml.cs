@@ -25,7 +25,6 @@ namespace charity_management_system.Views
     {
         public HomeView()
         {
-            //DBManager db = DBManager.instance;
             InitializeComponent();
         }
     }

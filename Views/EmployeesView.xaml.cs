@@ -28,15 +28,15 @@ namespace charity_management_system.Views
         BranchRepo br = new BranchRepo();
         public EmployeesView()
         {
-            foreach(Branch branch in br.findAll())
+            InitializeComponent();
+            foreach (Branch branch in br.findAll())
             {
                 EmployeeBranchComboBox.Items.Add(branch.id);
             }
-            foreach(Department dep in dr.findAll())
+            foreach (Department dep in dr.findAll())
             {
                 EmployeeDepartmentComboBox.Items.Add(dep.name);
             }
-            InitializeComponent();
         }
         private void addEmployee(object sender, RoutedEventArgs e)
         {
@@ -50,6 +50,7 @@ namespace charity_management_system.Views
             {
                 employee = new PaidEmployee()
                 {
+                    SSN = SSNTextBox.Text,
                     name = nameTextBox.Text,
                     mobile = mobileTextBox.Text,
                     birthDate = birthdayBox.SelectedDate.Value.Date,
@@ -59,12 +60,32 @@ namespace charity_management_system.Views
                     city = cityTextBox.Text,
                     governorate = governorateTextBox.Text,
                     email = emailTextBox.Text,
-                    branch = br.findByID(EmployeeBranchComboBox.Text.ToString()),
+                    branch = new Branch { id = int.Parse(EmployeeBranchComboBox.Text.ToString())},
                     salary = int.Parse(salaryTextBox.Text),
-                    department = dr.findByID(EmployeeDepartmentComboBox.Text.ToString())
+                    department = new Department(EmployeeDepartmentComboBox.Text.ToString()),
                 };
                 EmployeeDataStore.instance.repository.save((PaidEmployee)employee);
                 EmployeeDataStore.instance.data.Add((PaidEmployee)employee);
+            }
+            else
+            {
+                employee = new Volunteer()
+                {
+                    SSN = SSNTextBox.Text,
+                    name = nameTextBox.Text,
+                    mobile = mobileTextBox.Text,
+                    birthDate = birthdayBox.SelectedDate.Value.Date,
+                    gender = empGender,
+                    addressLine1 = line1TextBox.Text,
+                    addressLine2 = line2TextBox.Text,
+                    city = cityTextBox.Text,
+                    governorate = governorateTextBox.Text,
+                    email = emailTextBox.Text,
+                    branch = new Branch { id = int.Parse(EmployeeBranchComboBox.Text.ToString()) },
+                    currentlyWorking = true,
+                };
+                VolunteerDataStore.instance.repository.save((Volunteer)employee);
+                VolunteerDataStore.instance.data.Add((Volunteer)employee);
             }
         }
     }

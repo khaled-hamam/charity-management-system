@@ -25,7 +25,7 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
-                <TextBox Grid.Column="0" Margin="8 0 0 0" 
+                <TextBox x:Name="SearchValue" Grid.Column="0" Margin="8 0 0 0" 
                          materialDesign:HintAssist.Hint="Search by SSN"
                          materialDesign:HintAssist.HintOpacity="0.4"
                          materialDesign:TextFieldAssist.DecorationVisibility="Hidden" 
@@ -72,6 +72,7 @@
                 <StackPanel>
                     <StackPanel Margin="16">
                         <TextBox x:Name="nameTextBox" materialDesign:HintAssist.Hint="Employee Name"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 8 0 0" HorizontalAlignment="Left" Width="200" />
+                        <TextBox x:Name="SSNTextBox" materialDesign:HintAssist.Hint="Employee SSN"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 8 0 0" HorizontalAlignment="Left" Width="200" />
                         <TextBox x:Name="mobileTextBox" materialDesign:HintAssist.Hint="Employee Mobile"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0 8 0 0" HorizontalAlignment="Left"  Width="200" />
                         <TextBox x:Name="emailTextBox" materialDesign:HintAssist.Hint="Employee email"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0 8 0 0" HorizontalAlignment="Left"  Width="200" />
                         <DatePicker x:Name="birthdayBox" materialDesign:HintAssist.Hint="Employee BirthDate"  Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Margin="0 15 0 0" HorizontalAlignment="Left"  Width="200"/>
@@ -104,12 +105,12 @@
                                         Width="200" 
                                         x:Name="EmployeeDepartmentComboBox" />
                         <ComboBox 
+                                        x:Name="EmployeeBranchComboBox"
                                         materialDesign:HintAssist.Hint="Employee Branch"  
                                         IsEditable="True" Style="{StaticResource MaterialDesignFloatingHintComboBox}"  
                                         Margin="0 8 0 0" 
                                         HorizontalAlignment="Left"  
-                                        Width="200" 
-                                        x:Name="EmployeeBranchComboBox" />
+                                        Width="200"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
                         <Button Style="{StaticResource MaterialDesignFlatButton}"

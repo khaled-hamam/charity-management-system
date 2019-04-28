@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace charity_management_system.Models
 {
-    class Volunteer : Employee
+    public class Volunteer : Employee
     {
         public bool currentlyWorking;
         public Volunteer() { }

@@ -15,6 +15,7 @@ namespace charity_management_system.Repositories
     {
         private OracleConnection connection;
         private OracleCommand command;
+
         public PaidEmployeeRepo()
         {
             connection = DBManager.instance.connection;
@@ -120,21 +121,37 @@ namespace charity_management_system.Repositories
 
         public PaidEmployee save(PaidEmployee model)
         {
+            command = new OracleCommand();
+            command.Connection = connection;
             command.CommandText = "SAVE_PAID_EMPLOYEE";
             command.CommandType = CommandType.StoredProcedure;
             command.Parameters.Add("ssn", model.SSN);
             command.Parameters.Add("name", model.name);
             command.Parameters.Add("mobile", model.mobile);
-            command.Parameters.Add("birth_date", model.birthDate);
-            command.Parameters.Add("gender", model.gender);
+
+            OracleParameter p = new OracleParameter(":birth_date", OracleDbType.Date);
+            p.Value = model.birthDate;
+            command.Parameters.Add(p);
+
+            p = new OracleParameter(":gender", OracleDbType.Char);
+            p.Value = model.gender;
+            command.Parameters.Add(p);
+
             command.Parameters.Add("address_line1", model.addressLine1);
             command.Parameters.Add("address_line2", model.addressLine2);
             command.Parameters.Add("city", model.city);
             command.Parameters.Add("governorate", model.governorate);
             command.Parameters.Add("email", model.email);
-            command.Parameters.Add("branch_id", model.branch.id);
-            command.Parameters.Add("salary", model.salary);
-            command.Parameters.Add("department_name", model.department);
+
+            p = new OracleParameter(":branch_id", OracleDbType.Decimal);
+            p.Value = model.branch.id;
+            command.Parameters.Add(p);
+
+            p = new OracleParameter(":salary", OracleDbType.Decimal);
+            p.Value = model.salary;
+            command.Parameters.Add(p);
+
+            command.Parameters.Add("department_name", model.department.name);
             int ret = command.ExecuteNonQuery();
             if (ret != -1)
             {
