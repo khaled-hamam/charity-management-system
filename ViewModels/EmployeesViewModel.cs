@@ -30,7 +30,7 @@ namespace charity_management_system.ViewModels
 
             EmployeeDataStore.instance.data.CollectionChanged += new NotifyCollectionChangedEventHandler((obj, e) =>
             {
-                _employees = Mapper.toViewModel<PaidEmployee, EmployeeCardViewModel>(
+                FilteredEmployees = Mapper.toViewModel<PaidEmployee, EmployeeCardViewModel>(
                     obj as ObservableCollection<PaidEmployee>,
                     (employee) => new EmployeeCardViewModel(employee)
                 );
