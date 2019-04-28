@@ -15,7 +15,6 @@ namespace charity_management_system.ViewModels
 {
     public class DepartmentsViewModel : Screen
     {
-
         public  List<Department> Departments { get; set; }
         private IRepository<Department> _repository;
         public DepartmentsViewModel()

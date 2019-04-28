@@ -108,6 +108,8 @@
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\PaidEmployee.cs" />
     <Compile Include="Models\Volunteer.cs" />
+    <Compile Include="Repositories\EmployeeDisRepo.cs" />
+    <Compile Include="ViewModels\BranchMasterViewModel.cs" />
     <Compile Include="ViewModels\BranchViewModel.cs" />
     <Compile Include="Repositories\BranchRepo.cs" />
     <Compile Include="Repositories\DepartmentRepo.cs" />
@@ -117,6 +119,14 @@
     <Compile Include="Repositories\PaidEmployeeRepo.cs" />
     <Compile Include="Repositories\VolunteerRepo.cs" />
     <Compile Include="Utils\DBManager.cs" />
+    <Page Include="Views\AddEmployeeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\BranchMasterView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\BranchView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -156,6 +166,12 @@
     <Compile Include="ViewModels\EmployeeCardViewModel.cs" />
     <Compile Include="ViewModels\EmployeesViewModel.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />
+    <Compile Include="Views\AddEmployeeView.xaml.cs">
+      <DependentUpon>AddEmployeeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BranchMasterView.xaml.cs">
+      <DependentUpon>BranchMasterView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\BranchView.xaml.cs">
       <DependentUpon>BranchView.xaml</DependentUpon>
     </Compile>

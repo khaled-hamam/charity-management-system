@@ -1,5 +1,6 @@
 ﻿using charity_management_system.DataStores;
 using charity_management_system.Models;
+using charity_management_system.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,8 +29,10 @@ namespace charity_management_system.Views
         }
         private void addDonor(object sender, RoutedEventArgs e)
         {
-
-            DonorDataStore.instance.data.Add(new Donor() { name = nameTextBox.Text });
+            DonorRepo donor = new DonorRepo();
+            Donor newDonor = new Donor() { id = 5, name = nameTextBox.Text, addressLine1 = DonorAddress1TextBox.Text, addressLine2 = DonorAddress2TextBox.Text, city = DonorCityTextBox.Text, governorate = DonorgovernorateTextBox.Text, mobile = DonorMobileTextBox.Text };
+            donor.save(newDonor);
+             DonorDataStore.instance.data.Add(newDonor);
         }
     }
 }

@@ -112,8 +112,9 @@ namespace charity_management_system.Repositories
         //insert
         public Donor save(Donor model)
         {
-            command.CommandText = "insert into donors values (:name, :mobile, :address_line1, :address_line2, :city, :governorate)";
+            command.CommandText = "insert into donor values (:id, :name, :mobile, :address_line1, :address_line2, :city, :governorate)";
             command.CommandType = System.Data.CommandType.Text;
+            command.Parameters.Add("id", model.id);
             command.Parameters.Add("name", model.name);
             command.Parameters.Add("mobile", model.mobile);
             command.Parameters.Add("address_line1", model.addressLine1);
@@ -122,10 +123,10 @@ namespace charity_management_system.Repositories
             command.Parameters.Add("governorate", model.governorate);
             
             int check = command.ExecuteNonQuery();
-            //if (check != -1)
-            //{
-            //    return model;
-            //}
+            if (check != -1)
+            {
+                return model;
+            }
             return null;
         }
 

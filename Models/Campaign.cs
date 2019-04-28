@@ -7,11 +7,13 @@ using System.Threading.Tasks;
 namespace charity_management_system.Models {
     public class Campaign {
         public int id;
-        public String name;
-        public DateTime startDate;
-        public DateTime endDate;
-        public String description;
-        public String goal;
+        public String name { get; set; }
+        public DateTime startDate { get; set; }
+        public DateTime endDate { get; set; }
+        public String description { get; set; }
+        public String goal { get; set; }
+
+        public Campaign() { }
 
         public Campaign (int id) {
             this.id = id;

@@ -13,17 +13,21 @@ namespace charity_management_system.Repositories
         private OracleDataAdapter adapter;
         private OracleCommandBuilder cmdBuilder;
         private DataSet ds;
-        String connectionStr;
-        String cmdStr;
+        public DataSet dataSet
+        {
+            get
+            {
+                return this.ds;
+            }
+        }
   
         public BranchRepo()
         {
-            connectionStr = DBManager.instance.connectionString;
-            cmdStr = "select * from branch";
+            String connectionStr = DBManager.instance.connectionString;
+            String cmdStr = "select * from branch";
             adapter = new OracleDataAdapter(cmdStr, connectionStr);
             ds = new DataSet();
             adapter.Fill(ds);
-
         }
 
         public bool delete(Branch model)
@@ -55,7 +59,7 @@ namespace charity_management_system.Repositories
             List<Branch> branches = ds.Tables[0].AsEnumerable().Select(
                     DataRow => new Branch
                     { 
-                        id =  DataRow.Field<int>("id"),
+                        id = (int)DataRow.Field<Decimal>("id"),
                         addressLine1 =    DataRow.Field<String>("address_line1"),
                         addressLine2 = DataRow.Field<String>("address_line2"),
                         city =   DataRow.Field<String>("city"),
@@ -110,6 +114,15 @@ namespace charity_management_system.Repositories
             cmdBuilder = new OracleCommandBuilder(adapter);
              int ret =  adapter.Update(ds.Tables[0]);
             return true;
+        }
+
+        public void populate(List<Branch> branches)
+        {
+            branches.ForEach(branch =>
+            {
+                var empRepo = new EmployeeDisRepo();
+                branch.employees.AddRange(empRepo.find("branch_id", branch.id.ToString()));
+            });
         }
     }
 }
