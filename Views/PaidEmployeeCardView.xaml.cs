@@ -24,5 +24,15 @@ namespace charity_management_system.Views
         {
             InitializeComponent();
         }
+
+        private void DeleteEmployee_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void UpdateEmployeeClick(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
