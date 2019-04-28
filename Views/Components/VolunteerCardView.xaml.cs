@@ -1,4 +1,6 @@
-﻿using System;
+﻿using charity_management_system.DataStores;
+using charity_management_system.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +25,16 @@ namespace charity_management_system.Views.Components
         public VolunteerCardView()
         {
             InitializeComponent();
+        }
+
+        private void UpdateEmployeeClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DeleteEmployee_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }

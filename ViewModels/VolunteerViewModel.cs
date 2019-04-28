@@ -43,9 +43,13 @@ namespace charity_management_system.ViewModels
         {
             if (e.PropertyName == "SearchValue" && SearchValue.Length > 0)
             {
-                var s = new VolunteerCardViewModel(VolunteerDataStore.instance.repository.findByID(SearchValue));
+                Volunteer v = VolunteerDataStore.instance.repository.findByID(SearchValue);
                 FilteredEmployees.Clear();
-                FilteredEmployees.Add(s);
+                if (v != null)
+                {
+                    var s = new VolunteerCardViewModel(v);
+                    FilteredEmployees.Add(s);
+                }
             }
             else if (e.PropertyName == "SearchValue")
             {

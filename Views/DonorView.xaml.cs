@@ -32,7 +32,7 @@ namespace charity_management_system.Views
             DonorRepo donor = new DonorRepo();
             Donor newDonor = new Donor() { id = 5, name = nameTextBox.Text, addressLine1 = DonorAddress1TextBox.Text, addressLine2 = DonorAddress2TextBox.Text, city = DonorCityTextBox.Text, governorate = DonorgovernorateTextBox.Text, mobile = DonorMobileTextBox.Text };
             donor.save(newDonor);
-             DonorDataStore.instance.data.Add(newDonor);
+            DonorDataStore.instance.data.Add(newDonor);
         }
     }
 }

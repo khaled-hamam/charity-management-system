@@ -81,54 +81,49 @@ namespace charity_management_system.Repositories
 
         public Volunteer findByID(string id)
         {
-            command = new OracleCommand();
-            command.Connection = connection;
-
-            command.CommandText = "find_volunteer_by_id";
-            command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.Add("emp_ssn", id);
-            command.Parameters.Add("ssn", ParameterDirection.Output);
-            command.Parameters.Add("name", ParameterDirection.Output);
-            command.Parameters.Add("mobile", ParameterDirection.Output);
-            command.Parameters.Add("birth_date", ParameterDirection.Output);
-            command.Parameters.Add("gender", ParameterDirection.Output);
-            command.Parameters.Add("address_line1", ParameterDirection.Output);
-            command.Parameters.Add("address_line2", ParameterDirection.Output);
-            command.Parameters.Add("city", ParameterDirection.Output);
-            command.Parameters.Add("governorate", ParameterDirection.Output);
-            command.Parameters.Add("email", ParameterDirection.Output);
-            command.Parameters.Add("branch_id", ParameterDirection.Output);
-            command.Parameters.Add("is_currently_working", ParameterDirection.Output);
-
-            OracleDataReader reader = command.ExecuteReader();
-            Volunteer volunteer;
-            if (reader.Read())
+            try
             {
-                volunteer = new Volunteer
-                {
-                    SSN = reader["ssn"].ToString(),
-                    name = reader["name"].ToString(),
-                    mobile = reader["mobile"].ToString(),
-                    birthDate = Convert.ToDateTime(reader["birth_date"]),
-                    gender = char.Parse(reader["gender"].ToString()),
-                    addressLine1 = reader["address_line1"].ToString(),
-                    addressLine2 = reader["address_line2"].ToString(),
-                    city = reader["city"].ToString(),
-                    governorate = reader["governorate"].ToString(),
-                    email = reader["email"].ToString(),
-                    branch = new Branch { id = int.Parse(reader["branch_id"].ToString()) },
-                    currentlyWorking = bool.Parse(reader["is_currently_working"].ToString())
-                };
+                command = new OracleCommand();
+                command.Connection = connection;
+
+                command.CommandText = "find_volunteer_by_id";
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add("ssn", OracleDbType.Varchar2, 100).Direction = ParameterDirection.Output;
+                command.Parameters.Add("name", OracleDbType.Varchar2, 100).Direction = ParameterDirection.Output;
+                command.Parameters.Add("mobile", OracleDbType.Varchar2, 100).Direction = ParameterDirection.Output;
+                command.Parameters.Add("birth_date", OracleDbType.Date).Direction = ParameterDirection.Output;
+                command.Parameters.Add("gender", OracleDbType.Char, 1).Direction = ParameterDirection.Output;
+                command.Parameters.Add("address_line1", OracleDbType.Varchar2, 100).Direction = ParameterDirection.Output;
+                command.Parameters.Add("address_line2", OracleDbType.Varchar2, 100).Direction = ParameterDirection.Output;
+                command.Parameters.Add("city", OracleDbType.Varchar2, 100).Direction = ParameterDirection.Output;
+                command.Parameters.Add("governorate", OracleDbType.Varchar2, 100).Direction = ParameterDirection.Output;
+                command.Parameters.Add("email", OracleDbType.Varchar2, 100).Direction = ParameterDirection.Output;
+                command.Parameters.Add("branch_id", OracleDbType.Int32).Direction = ParameterDirection.Output;
+                command.Parameters.Add("is_currently_working", OracleDbType.Decimal, 100).Direction = ParameterDirection.Output;
+
+                command.ExecuteNonQuery();
+                    Volunteer volunteer = new Volunteer
+                    {
+                        SSN = command.Parameters["ssn"].ToString(),
+                        name = command.Parameters["name"].ToString(),
+                        mobile = command.Parameters["mobile"].ToString(),
+                        birthDate = Convert.ToDateTime(command.Parameters["birth_date"]),
+                        gender = char.Parse(command.Parameters["gender"].ToString()),
+                        addressLine1 = command.Parameters["address_line1"].ToString(),
+                        addressLine2 = command.Parameters["address_line2"].ToString(),
+                        city = command.Parameters["city"].ToString(),
+                        governorate = command.Parameters["governorate"].ToString(),
+                        email = command.Parameters["email"].ToString(),
+                        branch = new Branch { id = int.Parse(command.Parameters["branch_id"].ToString()) },
+                        currentlyWorking = bool.Parse(command.Parameters["is_currently_working"].ToString())
+                    };
+                return volunteer;
             }
-            else
+            catch (Exception e)
             {
-                reader.Close();
+                Console.WriteLine(e);
                 return null;
             }
-            reader.Close();
-            return volunteer;
-
-
         }
 
         public Volunteer save(Volunteer model)
