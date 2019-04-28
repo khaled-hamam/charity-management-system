@@ -46,7 +46,7 @@
                 <ItemsControl x:Name="FilteredEmployees">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <Components:EmployeeCardView />
+                            <local:VolunteerCardView />
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                     <ItemsControl.ItemsPanel>
