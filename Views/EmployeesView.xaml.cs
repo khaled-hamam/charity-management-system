@@ -40,53 +40,30 @@ namespace charity_management_system.Views
         }
         private void addEmployee(object sender, RoutedEventArgs e)
         {
-            Employee employee;
             char empGender;
             if (employeeGender.Text.ToString() == "Male")
                 empGender = 'M';
             else
                 empGender = 'F';
-            if (EmpoloyeeRoleComboBox.Text.ToString() == "Paid Employee")
+            Employee employee = new PaidEmployee()
             {
-                employee = new PaidEmployee()
-                {
-                    SSN = SSNTextBox.Text,
-                    name = nameTextBox.Text,
-                    mobile = mobileTextBox.Text,
-                    birthDate = birthdayBox.SelectedDate.Value.Date,
-                    gender = empGender,
-                    addressLine1 = line1TextBox.Text,
-                    addressLine2 = line2TextBox.Text,
-                    city = cityTextBox.Text,
-                    governorate = governorateTextBox.Text,
-                    email = emailTextBox.Text,
-                    branch = new Branch { id = int.Parse(EmployeeBranchComboBox.Text.ToString())},
-                    salary = int.Parse(salaryTextBox.Text),
-                    department = new Department(EmployeeDepartmentComboBox.Text.ToString()),
-                };
-                EmployeeDataStore.instance.repository.save((PaidEmployee)employee);
-                EmployeeDataStore.instance.data.Add((PaidEmployee)employee);
-            }
-            else
-            {
-                employee = new Volunteer()
-                {
-                    SSN = SSNTextBox.Text,
-                    name = nameTextBox.Text,
-                    mobile = mobileTextBox.Text,
-                    birthDate = birthdayBox.SelectedDate.Value.Date,
-                    gender = empGender,
-                    addressLine1 = line1TextBox.Text,
-                    addressLine2 = line2TextBox.Text,
-                    city = cityTextBox.Text,
-                    governorate = governorateTextBox.Text,
-                    email = emailTextBox.Text,
-                    branch = new Branch { id = int.Parse(EmployeeBranchComboBox.Text.ToString()) },
-                    currentlyWorking = true,
-                };
-                VolunteerDataStore.instance.repository.save((Volunteer)employee);
-                VolunteerDataStore.instance.data.Add((Volunteer)employee);
-            }
+                SSN = SSNTextBox.Text,
+                name = nameTextBox.Text,
+                mobile = mobileTextBox.Text,
+                birthDate = birthdayBox.SelectedDate.Value.Date,
+                gender = empGender,
+                addressLine1 = line1TextBox.Text,
+                addressLine2 = line2TextBox.Text,
+                city = cityTextBox.Text,
+                governorate = governorateTextBox.Text,
+                email = emailTextBox.Text,
+                branch = new Branch { id = int.Parse(EmployeeBranchComboBox.Text.ToString()) },
+                salary = int.Parse(salaryTextBox.Text),
+                department = new Department(EmployeeDepartmentComboBox.Text.ToString()),
+            };
+            EmployeeDataStore.instance.repository.save((PaidEmployee)employee);
+            EmployeeDataStore.instance.data.Add((PaidEmployee)employee);
         }
+
     }
 }

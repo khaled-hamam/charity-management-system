@@ -120,7 +120,11 @@
     <Compile Include="Repositories\PaidEmployeeRepo.cs" />
     <Compile Include="Repositories\VolunteerRepo.cs" />
     <Compile Include="Utils\DBManager.cs" />
+    <Compile Include="ViewModels\VolunteerCardViewModel.cs" />
     <Compile Include="ViewModels\VolunteerViewModel.cs" />
+    <Compile Include="Views\Components\VolunteerCardView.xaml.cs">
+      <DependentUpon>VolunteerCardView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\VolunteerView.xaml.cs">
       <DependentUpon>VolunteerView.xaml</DependentUpon>
     </Compile>
@@ -137,6 +141,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\Components\EmployeeCardView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Components\VolunteerCardView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

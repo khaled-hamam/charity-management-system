@@ -25,6 +25,9 @@ namespace charity_management_system.Repositories
 
         public bool delete(Volunteer model)
         {
+            command = new OracleCommand();
+            command.Connection = connection;
+
             command.CommandText = "delete_volunteer";
             command.CommandType = System.Data.CommandType.StoredProcedure;
             command.Parameters.Add("ssn", model.SSN);
@@ -43,6 +46,9 @@ namespace charity_management_system.Repositories
 
         public List<Volunteer> findAll()
         {
+            command = new OracleCommand();
+            command.Connection = connection;
+
             command.CommandText = "find_all_volunteers";
             command.CommandType = System.Data.CommandType.StoredProcedure;
             command.Parameters.Add("volunteer", OracleDbType.RefCursor, ParameterDirection.Output);
@@ -64,7 +70,7 @@ namespace charity_management_system.Repositories
                     governorate = reader["governorate"].ToString(),
                     email = reader["email"].ToString(),
                     branch = new Branch { id = int.Parse(reader["branch_id"].ToString()) },
-                    currentlyWorking = bool.Parse(reader["is_currently_working"].ToString())
+                    //currentlyWorking = bool.Parse(reader["is_currently_working"].ToString())
                 };
                 volunteers.Add(volunteer);
             }
@@ -75,6 +81,9 @@ namespace charity_management_system.Repositories
 
         public Volunteer findByID(string id)
         {
+            command = new OracleCommand();
+            command.Connection = connection;
+
             command.CommandText = "find_volunteer_by_id";
             command.CommandType = CommandType.StoredProcedure;
             command.Parameters.Add("emp_ssn", id);
@@ -124,6 +133,9 @@ namespace charity_management_system.Repositories
 
         public Volunteer save(Volunteer model)
         {
+            command = new OracleCommand();
+            command.Connection = connection;
+
             command.CommandText = "save_volunteer";
             command.CommandType = System.Data.CommandType.StoredProcedure;
             command.Parameters.Add("ssn", model.SSN);
@@ -137,7 +149,7 @@ namespace charity_management_system.Repositories
             command.Parameters.Add("governorate", model.governorate);
             command.Parameters.Add("email", model.email);
             command.Parameters.Add("branch_id", model.branch.id);
-            command.Parameters.Add("currently_working", model.currentlyWorking);
+            command.Parameters.Add("currently_working", 1);
             int check = command.ExecuteNonQuery();
             //should return volunteer
             return null;
@@ -145,6 +157,9 @@ namespace charity_management_system.Repositories
 
         public bool update(Volunteer newModel)
         {
+            command = new OracleCommand();
+            command.Connection = connection;
+
             command.CommandText = "update_volunteer";
             command.CommandType = System.Data.CommandType.StoredProcedure;
             command.Parameters.Add("ssn", newModel.SSN);

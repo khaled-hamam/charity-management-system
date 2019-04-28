@@ -47,7 +47,7 @@ namespace charity_management_system.Repositories
         {
             command = new OracleCommand();
             command.Connection = connection;
-
+                
             command.CommandText = "FIND_ALL_PAID_EMPLOYEE";
             command.CommandType = CommandType.StoredProcedure;
             command.Parameters.Add("paidEmployee", OracleDbType.RefCursor, ParameterDirection.Output);

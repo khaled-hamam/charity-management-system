@@ -46,7 +46,7 @@
                 <ItemsControl x:Name="FilteredEmployees">
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            
+                            <Components:VolunteerCardView />
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                     <ItemsControl.ItemsPanel>
@@ -84,26 +84,6 @@
                         <TextBox x:Name="governorateTextBox" materialDesign:HintAssist.Hint="Employee governorate"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0 8 0 0" HorizontalAlignment="Left"  Width="200" />
                         <TextBox x:Name="line1TextBox" materialDesign:HintAssist.Hint="Address Line1" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0 8 0 0" HorizontalAlignment="Left"  Width="200" />
                         <TextBox x:Name="line2TextBox" materialDesign:HintAssist.Hint="Address Line2 "  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0 8 0 0" HorizontalAlignment="Left"  Width="200" />
-                        <TextBox x:Name="salaryTextBox" materialDesign:HintAssist.Hint="Employee salary"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0 8 0 0" HorizontalAlignment="Left"  Width="200"/>
-                        <ComboBox 
-                                        Text="{Binding EmployeeRole}" 
-                                        materialDesign:HintAssist.Hint="Employee Role"  
-                                        IsEditable="True"
-                                        Style="{StaticResource MaterialDesignFloatingHintComboBox}"  
-                                        Margin="0 8 0 0" 
-                                        HorizontalAlignment="Left" 
-                                        Width="200" 
-                                        x:Name="EmpoloyeeRoleComboBox" >
-                            <ComboBoxItem>Paid Employee</ComboBoxItem>
-                            <ComboBoxItem>Volunteer</ComboBoxItem>
-                        </ComboBox>
-                        <ComboBox 
-                                        materialDesign:HintAssist.Hint="Employee Department"  
-                                        IsEditable="True" Style="{StaticResource MaterialDesignFloatingHintComboBox}"  
-                                        Margin="0 8 0 0" 
-                                        HorizontalAlignment="Left"  
-                                        Width="200" 
-                                        x:Name="EmployeeDepartmentComboBox" />
                         <ComboBox 
                                         x:Name="EmployeeBranchComboBox"
                                         materialDesign:HintAssist.Hint="Employee Branch"  

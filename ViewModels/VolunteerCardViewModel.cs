@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace charity_management_system.ViewModels
 {
-    public class EmployeeCardViewModel : Screen
+    public class VolunteerCardViewModel : Screen
     {
-        public PaidEmployee employee { get; set; }
+        public Volunteer volunteer { get; set; }
         public String Role { get; set; }
-        public EmployeeCardViewModel(PaidEmployee employee)
+        public VolunteerCardViewModel(Volunteer volunteer)
         {
-            this.Role = "Paid Employee";
-            this.employee = employee;
+            this.Role = "Volunteer";
+            this.volunteer = volunteer;
         }
     }
 }

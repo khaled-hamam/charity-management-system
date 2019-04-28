@@ -1,4 +1,6 @@
-﻿using System;
+﻿using charity_management_system.DataStores;
+using charity_management_system.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,7 +28,28 @@ namespace charity_management_system.Views
         }
         private void addEmployee(object sender, RoutedEventArgs e)
         {
-
+            char empGender;
+            if (employeeGender.Text.ToString() == "Male")
+                empGender = 'M';
+            else
+                empGender = 'F';
+            Employee employee = new Volunteer()
+            {
+                SSN = SSNTextBox.Text,
+                name = nameTextBox.Text,
+                mobile = mobileTextBox.Text,
+                birthDate = birthdayBox.SelectedDate.Value.Date,
+                gender = empGender,
+                addressLine1 = line1TextBox.Text,
+                addressLine2 = line2TextBox.Text,
+                city = cityTextBox.Text,
+                governorate = governorateTextBox.Text,
+                email = emailTextBox.Text,
+                branch = new Branch { id = int.Parse(EmployeeBranchComboBox.Text.ToString()) },
+                currentlyWorking = false,
+            };
+            VolunteerDataStore.instance.repository.save((Volunteer)employee);
+            VolunteerDataStore.instance.data.Add((Volunteer)employee);
         }
     }
 }
