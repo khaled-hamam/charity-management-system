@@ -26,5 +26,15 @@ namespace charity_management_system.ViewModels
         {
             ActivateItem(new DonorViewModel());
         }
+
+        public void LoadBranchMasterPage()
+        {
+            ActivateItem(new BranchMasterViewModel());
+        }
+
+        public void LoadBranchPage()
+        {
+            ActivateItem(new BranchViewModel());
+        }
     }
 }

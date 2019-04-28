@@ -1,0 +1,74 @@
+﻿<UserControl x:Class="charity_management_system.Views.BranchMasterView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:charity_management_system.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid Background="Gray">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Background="White">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" Margin="20 0 0 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <TextBox Grid.Column="0" Margin="8 0 0 0" 
+                         materialDesign:HintAssist.Hint="Search by Name"
+                         materialDesign:HintAssist.HintOpacity="0.4"
+                         materialDesign:TextFieldAssist.DecorationVisibility="Hidden" 
+                         BorderThickness="0"
+                         MinWidth="200" VerticalAlignment="Center"
+                         Foreground="{StaticResource DarkText}">
+                    <TextBox.InputBindings>
+                        <KeyBinding Key="Return" />
+                    </TextBox.InputBindings>
+                </TextBox>
+                <Button Style="{DynamicResource MaterialDesignToolButton}" Grid.Column="1">
+                    <materialDesign:PackIcon Kind="Magnify" Opacity=".56" />
+                </Button>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <ListView Grid.Row="1" Grid.Column="0" Name="listViewBranches" 
+                      ItemsSource="{ Binding Branches }"
+                      SelectedIndex="0">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="ID" DisplayMemberBinding="{Binding id}" Width="auto"/>
+                        <GridViewColumn Header="City" DisplayMemberBinding="{Binding city}" Width="auto"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+
+            <!-- This ListView displayd the corresponding order information for the selected customer in the customers ListView -->
+            <!-- Put attention to the ItemSource property, its the key point of this kind of master/detail data binding -->
+            <ListView Grid.Row="1" Grid.Column="1" Name="listViewEmployees"
+                    ItemsSource="{Binding ElementName=listViewBranches, Path=SelectedItem.employees}">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="SSN" DisplayMemberBinding="{Binding SSN}" Width="auto"/>
+                        <GridViewColumn Header="Name" DisplayMemberBinding="{Binding name}" Width="auto"/>
+                        <GridViewColumn Header="Email" DisplayMemberBinding="{Binding email}" Width="auto"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
+    </Grid>
+</UserControl>
