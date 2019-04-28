@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:charity_management_system.Views"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:system="clr-namespace:System;assembly=mscorlib"
+                         xmlns:Components="clr-namespace:charity_management_system.Views.Components"
              mc:Ignorable="d" 
             d:DesignHeight="540" d:DesignWidth="640">
     <Grid Background="{StaticResource GreyBG}">
@@ -45,7 +46,7 @@
                 <ItemsControl x:Name="FilteredEmployees">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <local:EmployeeCardView />
+                        <Components:EmployeeCardView />
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
                 <ItemsControl.ItemsPanel>
