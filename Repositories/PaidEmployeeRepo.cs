@@ -24,6 +24,9 @@ namespace charity_management_system.Repositories
         }
         public bool delete(PaidEmployee model)
         {
+            command = new OracleCommand();
+            command.Connection = connection;
+
             command.CommandText = "DELETE_PAID_EMPLOYEE";
             command.CommandType = CommandType.StoredProcedure;
             command.Parameters.Add("emp_ssn", model.SSN);
@@ -42,6 +45,9 @@ namespace charity_management_system.Repositories
 
         public List<PaidEmployee> findAll()
         {
+            command = new OracleCommand();
+            command.Connection = connection;
+
             command.CommandText = "FIND_ALL_PAID_EMPLOYEE";
             command.CommandType = CommandType.StoredProcedure;
             command.Parameters.Add("paidEmployee", OracleDbType.RefCursor, ParameterDirection.Output);
@@ -73,6 +79,9 @@ namespace charity_management_system.Repositories
 
         public PaidEmployee findByID(string id)
         {
+            command = new OracleCommand();
+            command.Connection = connection;
+
             command.CommandText = "FIND_PAID_EMPLOYEE_BY_ID";
             command.CommandType = CommandType.StoredProcedure;
             command.Parameters.Add("emp_ssn", id);
@@ -121,8 +130,10 @@ namespace charity_management_system.Repositories
 
         public PaidEmployee save(PaidEmployee model)
         {
+
             command = new OracleCommand();
             command.Connection = connection;
+
             command.CommandText = "SAVE_PAID_EMPLOYEE";
             command.CommandType = CommandType.StoredProcedure;
             command.Parameters.Add("ssn", model.SSN);
@@ -162,6 +173,9 @@ namespace charity_management_system.Repositories
 
         public bool update(PaidEmployee Model)
         {
+            command = new OracleCommand();
+            command.Connection = connection;
+
             command.CommandText = "UPDATE_PAID_EMPLOYEE";
             command.CommandType = CommandType.StoredProcedure;
             command.Parameters.Add("ssn", Model.SSN);

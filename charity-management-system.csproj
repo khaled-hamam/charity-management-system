@@ -120,6 +120,10 @@
     <Compile Include="Repositories\PaidEmployeeRepo.cs" />
     <Compile Include="Repositories\VolunteerRepo.cs" />
     <Compile Include="Utils\DBManager.cs" />
+    <Compile Include="ViewModels\VolunteerViewModel.cs" />
+    <Compile Include="Views\VolunteerView.xaml.cs">
+      <DependentUpon>VolunteerView.xaml</DependentUpon>
+    </Compile>
     <Page Include="Views\BranchMasterView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -188,6 +192,10 @@
       <DependentUpon>HomeView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\VolunteerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Campaign.cs" />

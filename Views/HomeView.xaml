@@ -22,7 +22,8 @@
             </DockPanel>
             <DockPanel Name="SideMenu" LastChildFill="False" Background="{StaticResource PrimaryColor}" Grid.Row="1" Grid.Column="0" Grid.RowSpan="9">
                 <ListView x:Name="ListViewMenu" DockPanel.Dock="Top" Margin="0 15 0 0" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
-                    <Button HorizontalAlignment="Center" Style="{StaticResource NavigateButtons}" x:Name="LoadEmployeesPage">Employees</Button>
+                    <Button HorizontalAlignment="Center" Style="{StaticResource NavigateButtons}" x:Name="LoadPaidEmployeesPage">Paid Employees</Button>
+                    <Button HorizontalAlignment="Center" Style="{StaticResource NavigateButtons}" x:Name="LoadVolunteersPage">Volunteers</Button>
                     <Button HorizontalAlignment="Center" Style="{StaticResource NavigateButtons}" x:Name="LoadDepartmentsPage" >Departments</Button>
                     <Button HorizontalAlignment="Center" Style="{StaticResource NavigateButtons}">Campains</Button>
                     <Button HorizontalAlignment="Center" Style="{StaticResource NavigateButtons}" x:Name="LoadBranchPage">Branches</Button>

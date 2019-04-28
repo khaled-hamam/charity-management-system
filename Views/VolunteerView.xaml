@@ -1,0 +1,139 @@
+﻿<UserControl x:Class="charity_management_system.Views.VolunteerView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:charity_management_system.Views"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             xmlns:Components="clr-namespace:charity_management_system.Views.Components"
+             mc:Ignorable="d" 
+            d:DesignHeight="540" d:DesignWidth="640">
+    <Grid Background="{StaticResource GreyBG}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Background="White">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" Margin="20 0 0 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <TextBox x:Name="SearchValue" Grid.Column="0" Margin="8 0 0 0" 
+                         materialDesign:HintAssist.Hint="Search by SSN"
+                         materialDesign:HintAssist.HintOpacity="0.4"
+                         materialDesign:TextFieldAssist.DecorationVisibility="Hidden" 
+                         BorderThickness="0"
+                         MinWidth="200" VerticalAlignment="Center"
+                         Foreground="{StaticResource DarkText}">
+                    <TextBox.InputBindings>
+                        <KeyBinding Key="Return" />
+                    </TextBox.InputBindings>
+                </TextBox>
+                <Button Style="{DynamicResource MaterialDesignToolButton}" Grid.Column="1">
+                    <materialDesign:PackIcon Kind="Magnify" Opacity=".56" />
+                </Button>
+            </Grid>
+        </Grid>
+        <ScrollViewer Grid.Row="1">
+            <Grid>
+                <ItemsControl x:Name="FilteredEmployees">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Components:EmployeeCardView />
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel Name="employeeList" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 10 0 0" />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                </ItemsControl>
+            </Grid>
+        </ScrollViewer>
+        <Button 
+                        Margin="0 0 35 20"
+                        Background="{StaticResource PrimaryColor}"
+                        BorderThickness="0"
+                        BorderBrush="Transparent"
+                        Grid.Row="1"
+                        materialDesign:ShadowAssist.ShadowDepth="Depth1"
+                        Style="{StaticResource MaterialDesignFloatingActionButton}"                              
+                        Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"
+                        VerticalAlignment="Bottom" HorizontalAlignment="Right">
+            <materialDesign:PackIcon Kind="Plus" />
+            <Button.CommandParameter>
+                <StackPanel>
+                    <StackPanel Margin="16">
+                        <TextBox x:Name="nameTextBox" materialDesign:HintAssist.Hint="Employee Name"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 8 0 0" HorizontalAlignment="Left" Width="200" />
+                        <TextBox x:Name="SSNTextBox" materialDesign:HintAssist.Hint="Employee SSN"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 8 0 0" HorizontalAlignment="Left" Width="200" />
+                        <TextBox x:Name="mobileTextBox" materialDesign:HintAssist.Hint="Employee Mobile"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0 8 0 0" HorizontalAlignment="Left"  Width="200" />
+                        <TextBox x:Name="emailTextBox" materialDesign:HintAssist.Hint="Employee email"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0 8 0 0" HorizontalAlignment="Left"  Width="200" />
+                        <DatePicker x:Name="birthdayBox" materialDesign:HintAssist.Hint="Employee BirthDate"  Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Margin="0 15 0 0" HorizontalAlignment="Left"  Width="200"/>
+                        <ComboBox materialDesign:HintAssist.Hint="Gender" BorderThickness="0" Background="White" x:Name="employeeGender"  Cursor="Hand"  HorizontalAlignment="Left" Margin="0 15 0 0">
+                            <ComboBoxItem>Male</ComboBoxItem>
+                            <ComboBoxItem>Female</ComboBoxItem>
+                        </ComboBox>
+                        <TextBox x:Name="cityTextBox" materialDesign:HintAssist.Hint="Employee City"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0 8 0 0" HorizontalAlignment="Left"  Width="200" />
+                        <TextBox x:Name="governorateTextBox" materialDesign:HintAssist.Hint="Employee governorate"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0 8 0 0" HorizontalAlignment="Left"  Width="200" />
+                        <TextBox x:Name="line1TextBox" materialDesign:HintAssist.Hint="Address Line1" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0 8 0 0" HorizontalAlignment="Left"  Width="200" />
+                        <TextBox x:Name="line2TextBox" materialDesign:HintAssist.Hint="Address Line2 "  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0 8 0 0" HorizontalAlignment="Left"  Width="200" />
+                        <TextBox x:Name="salaryTextBox" materialDesign:HintAssist.Hint="Employee salary"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0 8 0 0" HorizontalAlignment="Left"  Width="200"/>
+                        <ComboBox 
+                                        Text="{Binding EmployeeRole}" 
+                                        materialDesign:HintAssist.Hint="Employee Role"  
+                                        IsEditable="True"
+                                        Style="{StaticResource MaterialDesignFloatingHintComboBox}"  
+                                        Margin="0 8 0 0" 
+                                        HorizontalAlignment="Left" 
+                                        Width="200" 
+                                        x:Name="EmpoloyeeRoleComboBox" >
+                            <ComboBoxItem>Paid Employee</ComboBoxItem>
+                            <ComboBoxItem>Volunteer</ComboBoxItem>
+                        </ComboBox>
+                        <ComboBox 
+                                        materialDesign:HintAssist.Hint="Employee Department"  
+                                        IsEditable="True" Style="{StaticResource MaterialDesignFloatingHintComboBox}"  
+                                        Margin="0 8 0 0" 
+                                        HorizontalAlignment="Left"  
+                                        Width="200" 
+                                        x:Name="EmployeeDepartmentComboBox" />
+                        <ComboBox 
+                                        x:Name="EmployeeBranchComboBox"
+                                        materialDesign:HintAssist.Hint="Employee Branch"  
+                                        IsEditable="True" Style="{StaticResource MaterialDesignFloatingHintComboBox}"  
+                                        Margin="0 8 0 0" 
+                                        HorizontalAlignment="Left"  
+                                        Width="200"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+                        <Button Style="{StaticResource MaterialDesignFlatButton}"
+                                            IsDefault="True"
+                                            Margin="0 8 0 0"
+                                            Click="addEmployee">
+                            <Button.CommandParameter>
+                                <system:Boolean>True</system:Boolean>
+                            </Button.CommandParameter>
+                            SUBMIT
+                        </Button>
+                        <Button Style="{StaticResource MaterialDesignFlatButton}"
+                                        IsCancel="True"
+                                        Margin="0 8 0 0"
+                                        Command="materialDesign:DialogHost.CloseDialogCommand">
+                            <Button.CommandParameter>
+                                <system:Boolean>False</system:Boolean>
+                            </Button.CommandParameter>
+                            CANCEL
+                        </Button>
+                    </StackPanel>
+                </StackPanel>
+            </Button.CommandParameter>
+        </Button>
+    </Grid>
+</UserControl>

@@ -35,7 +35,7 @@ namespace charity_management_system.ViewModels
                     (employee) => new EmployeeCardViewModel(employee)
                 );
             });
-            this.PropertyChanged += EmployeesViewModel_PropertyChanged; 
+            this.PropertyChanged += EmployeesViewModel_PropertyChanged;
             FilteredEmployees = new ObservableCollection<EmployeeCardViewModel>(_employees);
         }
 
@@ -43,12 +43,11 @@ namespace charity_management_system.ViewModels
         {
             if (e.PropertyName == "SearchValue" && SearchValue.Length > 0)
             {
-                FilteredEmployees = new ObservableCollection<EmployeeCardViewModel>(
-                    from emp in _employees
-                    where emp.employee.SSN.Contains(SearchValue)
-                    select emp
-                );
-            } else if (e.PropertyName == "SearchValue")
+                var s = new EmployeeCardViewModel(EmployeeDataStore.instance.repository.findByID(SearchValue));
+                FilteredEmployees.Clear();
+                FilteredEmployees.Add(s);
+            }
+            else if (e.PropertyName == "SearchValue")
             {
                 FilteredEmployees = _employees;
             }
