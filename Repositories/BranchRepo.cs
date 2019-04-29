@@ -111,6 +111,12 @@ namespace charity_management_system.Repositories
 
         public bool saveData(DataTable dt)
         {
+            DataRow[] d = dt.Select("[address_Line1] = ''");
+            foreach (DataRow dr in d)
+            {
+                dr.Delete();
+            }
+
             cmdBuilder = new OracleCommandBuilder(adapter);
              int ret =  adapter.Update(dt);
             return true;

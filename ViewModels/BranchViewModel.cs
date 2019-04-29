@@ -22,7 +22,11 @@ namespace charity_management_system.ViewModels
         }
         public void save()
         {
-           // Console.WriteLine("here");
+            foreach (DataRow dr in branches.Table.Rows)
+            {
+                Console.WriteLine(dr["id"]);
+            }
+            // Console.WriteLine("here");
             _repository.saveData(branches.Table);
         }
     }

@@ -96,6 +96,12 @@ namespace charity_management_system.Repositories
         }
         public bool saveData(DataTable dt)
         {
+            DataRow[] d = dt.Select("[name] = ''");
+            foreach (DataRow dr in d)
+            {
+                dr.Delete();
+            }
+
             builder = new OracleCommandBuilder(adapter);
             int ret = adapter.Update(dt);
             return true;
