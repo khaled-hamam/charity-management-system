@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
+using charity_management_system.DataStores;
+using charity_management_system.Models;
 using charity_management_system.Repositories;
 using charity_management_system.ViewModels;
 
@@ -30,7 +32,7 @@ namespace charity_management_system.Views.Components
 
             Console.WriteLine(((EmployeeCardViewModel)this.DataContext).employee.name);
             emp.delete(((EmployeeCardViewModel)this.DataContext).employee);
-
+            EmployeeDataStore.instance.data.Remove(((EmployeeCardViewModel)this.DataContext).employee);
         }
     }
 }
