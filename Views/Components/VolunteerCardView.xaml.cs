@@ -7,13 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using charity_management_system.ViewModels;
+using charity_management_system.Repositories;
 
 namespace charity_management_system.Views.Components
 {
@@ -33,8 +28,10 @@ namespace charity_management_system.Views.Components
         }
 
         private void DeleteEmployee_Click(object sender, RoutedEventArgs e)
-        {
-            
+        { 
+            VolunteerRepo emp = new VolunteerRepo();
+
+            emp.delete(((VolunteerCardViewModel)this.DataContext).volunteer);
         }
     }
 }
