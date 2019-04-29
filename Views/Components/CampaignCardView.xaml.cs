@@ -5,13 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using charity_management_system.DataStores;
+using charity_management_system.Repositories;
+using charity_management_system.ViewModels;
+using charity_management_system.Models;
+
 
 namespace charity_management_system.Views
 {
@@ -23,6 +21,26 @@ namespace charity_management_system.Views
         public CampaignCardView()
         {
             InitializeComponent();
+        }
+
+        private void DeleteCampaign_Click(object sender, RoutedEventArgs e)
+        {
+            CampaignRepo campaignRepo = new CampaignRepo();
+
+            campaignRepo.delete(((CampaignCardViewModel)this.DataContext).campaign);
+            CampaignDataStore.instance.data.Remove(((CampaignCardViewModel)this.DataContext).campaign);
+        }
+
+        private void UpdateCampaign_Click(object sender, RoutedEventArgs e)
+        {
+            CampaignRepo campaignRepo = new CampaignRepo();
+            Campaign campaign = ((CampaignCardViewModel)this.DataContext).campaign;
+
+            campaign.name = nameTextBox.Text;
+            campaign.description = descriptionTextBox.Text;
+            campaign.goal = goalTextBox.Text;
+            campaign.startDate = startDate.SelectedDate.Value.Date;
+            campaign.endDate = endDate.SelectedDate.Value.Date;
         }
     }
 }

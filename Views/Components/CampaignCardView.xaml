@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
              xmlns:local="clr-namespace:charity_management_system.Views"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
                Margin="10"
              d:DesignHeight="150" d:DesignWidth="410">
@@ -26,21 +27,61 @@
                     <Grid.RowDefinitions>
                         <RowDefinition />
                         <RowDefinition />
+                        <RowDefinition/>
                     </Grid.RowDefinitions>
-
+                    <StackPanel Grid.Column="1" Grid.Row="0">
+                        <Button  Content="Delete" Margin="30,0,13.4,0" x:Name="DeleteCampaign" Click="DeleteCampaign_Click"/>
+                    </StackPanel>
                     <StackPanel Grid.Column="0" Grid.Row="0">
+                        <Button  Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}" Content="Update" Margin="5,0,4.6,0" >
+                            <Button.CommandParameter>
+                                <StackPanel>
+                                    <StackPanel Margin="16">
+                                        <TextBox x:Name="nameTextBox" Text="{Binding campaign.name}" materialDesign:HintAssist.Hint="Employee Name"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 8 0 0" HorizontalAlignment="Left" Width="200" />
+                                        <TextBox x:Name="descriptionTextBox" Text="{Binding campaign.description}" materialDesign:HintAssist.Hint="Employee City"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0 8 0 0" HorizontalAlignment="Left"  Width="200" />
+                                        <TextBox x:Name="goalTextBox" Text="{Binding campaign.goal}" materialDesign:HintAssist.Hint="Employee governorate"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0 8 0 0" HorizontalAlignment="Left"  Width="200" />
+                                        <DatePicker x:Name="startDate" Text="{Binding campaign.startDate}" materialDesign:HintAssist.Hint="Address Line1" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0 8 0 0" HorizontalAlignment="Left"  Width="200" />
+                                        <DatePicker x:Name="endDate" Text="{Binding campaign.endDate}" materialDesign:HintAssist.Hint="Address Line2 "  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0 8 0 0" HorizontalAlignment="Left"  Width="200" />
+
+
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+                                        <Button Style="{StaticResource MaterialDesignFlatButton}"
+                                            IsDefault="True"
+                                            Margin="0 8 0 0"
+                                            Click="UpdateCampaign_Click">
+                                            <Button.CommandParameter>
+                                                <system:Boolean>True</system:Boolean>
+                                            </Button.CommandParameter>
+                                            SUBMIT
+                                        </Button>
+                                        <Button Style="{StaticResource MaterialDesignFlatButton}"
+                                        IsCancel="True"
+                                        Margin="0 8 0 0"
+                                        Command="materialDesign:DialogHost.CloseDialogCommand">
+                                            <Button.CommandParameter>
+                                                <system:Boolean>False</system:Boolean>
+                                            </Button.CommandParameter>
+                                            CANCEL
+                                        </Button>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Button.CommandParameter>
+                        </Button>
+                    </StackPanel>
+                    <StackPanel Grid.Column="0" Grid.Row="1">
                         <TextBlock Style="{StaticResource InfoTitle}">Start Date</TextBlock>
                         <TextBlock Text="{Binding campaign.startDate}" Style="{StaticResource InfoValue}"/>
                     </StackPanel>
-                    <StackPanel Grid.Column="0" Grid.Row="1">
+                    <StackPanel Grid.Column="0" Grid.Row="2">
                         <TextBlock Style="{StaticResource InfoTitle}">End Date</TextBlock>
                         <TextBlock Text="{Binding campaign.endDate}" Style="{StaticResource InfoValue}"/>
                     </StackPanel>
-                    <StackPanel Grid.Column="1" Grid.Row="0">
+                    <StackPanel Grid.Column="1" Grid.Row="1">
                         <TextBlock Style="{StaticResource InfoTitle}">Description</TextBlock>
                         <TextBlock Text="{Binding campaign.description}" Style="{StaticResource InfoValue}"/>
                     </StackPanel>
-                    <StackPanel Grid.Column="1" Grid.Row="1">
+                    <StackPanel Grid.Column="1" Grid.Row="2">
                         <TextBlock Style="{StaticResource InfoTitle}">Goal</TextBlock>
                         <TextBlock Text="{Binding campaign.goal}" Style="{StaticResource InfoValue}"/>
                     </StackPanel>
