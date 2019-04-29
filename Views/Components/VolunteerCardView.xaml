@@ -4,8 +4,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:charity_management_system.Views"
-             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
-           mc:Ignorable="d"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             mc:Ignorable="d"
              Margin="10"
              d:DesignHeight="150" d:DesignWidth="410">
 
@@ -38,7 +39,55 @@
                         <Button  Content="Delete" Margin="30,0,13.4,0" x:Name="DeleteEmployee" Click="DeleteEmployee_Click"/>
                     </StackPanel>
                     <StackPanel Grid.Column="1" Grid.Row="0">
-                        <Button Content="Update" Margin="55,0,-17.4,0" Click="UpdateEmployeeClick"/>
+                        <Button  Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}" Content="Update" Margin="5,0,4.6,0" >
+                            <Button.CommandParameter>
+                                <StackPanel>
+                                    <StackPanel Margin="16">
+                                        <TextBox x:Name="nameTextBox" Text="{Binding volunteer.name}" materialDesign:HintAssist.Hint="Employee Name"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 8 0 0" HorizontalAlignment="Left" Width="200" />
+                                        <TextBox x:Name="mobileTextBox" Text="{Binding volunteer.mobile}" materialDesign:HintAssist.Hint="Employee Mobile"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0 8 0 0" HorizontalAlignment="Left"  Width="200" />
+                                        <TextBox x:Name="emailTextBox" Text="{Binding volunteer.email}" materialDesign:HintAssist.Hint="Employee email"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0 8 0 0" HorizontalAlignment="Left"  Width="200" />
+                                        <DatePicker x:Name="birthdayBox" SelectedDate="{Binding volunteer.birthdate}" materialDesign:HintAssist.Hint="Employee BirthDate"  Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Margin="0 15 0 0" HorizontalAlignment="Left"  Width="200"/>
+                                        <ComboBox materialDesign:HintAssist.Hint="Gender"  BorderThickness="0" Background="White" x:Name="employeeGender"  Cursor="Hand"  HorizontalAlignment="Left" Margin="0 15 0 0">
+                                            <ComboBoxItem>Male</ComboBoxItem>
+                                            <ComboBoxItem>Female</ComboBoxItem>
+                                        </ComboBox>
+                                        <TextBox x:Name="cityTextBox" Text="{Binding volunteer.city}" materialDesign:HintAssist.Hint="Employee City"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0 8 0 0" HorizontalAlignment="Left"  Width="200" />
+                                        <TextBox x:Name="governorateTextBox" Text="{Binding volunteer.governorate}" materialDesign:HintAssist.Hint="Employee governorate"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0 8 0 0" HorizontalAlignment="Left"  Width="200" />
+                                        <TextBox x:Name="line1TextBox" Text="{Binding volunteer.addressLine1}" materialDesign:HintAssist.Hint="Address Line1" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0 8 0 0" HorizontalAlignment="Left"  Width="200" />
+                                        <TextBox x:Name="line2TextBox" Text="{Binding volunteer.addressLine2}" materialDesign:HintAssist.Hint="Address Line2 "  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0 8 0 0" HorizontalAlignment="Left"  Width="200" />
+                                      
+                                        <ComboBox 
+                                        Text="{Binding volunteer.branch.name}"
+                                        x:Name="EmployeeBranchComboBox"
+                                        materialDesign:HintAssist.Hint="Employee Branch"  
+                                        IsEditable="True" Style="{StaticResource MaterialDesignFloatingHintComboBox}"  
+                                        Margin="0 8 0 0" 
+                                        HorizontalAlignment="Left"  
+                                        Width="200"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+                                        <Button Style="{StaticResource MaterialDesignFlatButton}"
+                                            IsDefault="True"
+                                            Margin="0 8 0 0"
+                                            Click="UpdateEmployeeClick">
+                                            <Button.CommandParameter>
+                                                <system:Boolean>True</system:Boolean>
+                                            </Button.CommandParameter>
+                                            SUBMIT
+                                        </Button>
+                                        <Button Style="{StaticResource MaterialDesignFlatButton}"
+                                        IsCancel="True"
+                                        Margin="0 8 0 0"
+                                        Command="materialDesign:DialogHost.CloseDialogCommand">
+                                            <Button.CommandParameter>
+                                                <system:Boolean>False</system:Boolean>
+                                            </Button.CommandParameter>
+                                            CANCEL
+                                        </Button>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Button.CommandParameter>
+                        </Button>
                     </StackPanel>
                     <StackPanel Grid.Column="0" Grid.Row="1">
                         <TextBlock Style="{StaticResource InfoTitle}">Mobile</TextBlock>

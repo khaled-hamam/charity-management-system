@@ -17,13 +17,41 @@ namespace charity_management_system.Views.Components
     /// </summary>
     public partial class VolunteerCardView : UserControl
     {
+        BranchRepo br = new BranchRepo();
         public VolunteerCardView()
         {
             InitializeComponent();
+            foreach (Branch branch in br.findAll())
+            {
+                EmployeeBranchComboBox.Items.Add(branch.id);
+            }
         }
 
         private void UpdateEmployeeClick(object sender, RoutedEventArgs e)
         {
+            VolunteerRepo employeeRepo = new VolunteerRepo();
+            Volunteer employee = ((VolunteerCardViewModel)this.DataContext).volunteer;
+
+            char empGender;
+            if (employeeGender.Text.ToString() == "Male")
+                empGender = 'M';
+            else
+                empGender = 'F';
+
+            employee.name = nameTextBox.Text;
+            employee.mobile = mobileTextBox.Text;
+            employee.email = emailTextBox.Text;
+            employee.birthDate = birthdayBox.SelectedDate.Value.Date;
+            employee.gender = empGender;
+            employee.addressLine1 = line1TextBox.Text;
+            employee.addressLine2 = line2TextBox.Text;
+            employee.city = cityTextBox.Text;
+            employee.governorate = governorateTextBox.Text;
+            employee.branch = new Branch { id = int.Parse(EmployeeBranchComboBox.Text.ToString()) };
+        
+            employee.name = nameTextBox.Text;
+
+            employeeRepo.update(((VolunteerCardViewModel)this.DataContext).volunteer);
 
         }
 
