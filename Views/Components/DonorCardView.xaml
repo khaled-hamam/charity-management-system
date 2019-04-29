@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
               xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
              xmlns:local="clr-namespace:charity_management_system.Views.Components"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
                Margin="10"
              d:DesignHeight="150" d:DesignWidth="410">
@@ -28,30 +29,72 @@
                     <Grid.RowDefinitions>
                         <RowDefinition />
                         <RowDefinition />
+                        <RowDefinition/>
                     </Grid.RowDefinitions>
 
-                    <StackPanel Grid.Column="0" Grid.Row="0">
+                    <StackPanel Grid.Column="0" Grid.Row="1">
                         <TextBlock Style="{StaticResource InfoTitle}">Donor</TextBlock>
                         <TextBlock Text="{Binding donor.name}" Style="{StaticResource InfoValue}"/>
                     </StackPanel>
+                    <StackPanel Grid.Column="2" Grid.Row="0">
+                        <Button  Content="Delete" Margin="30,0,13.4,0" x:Name="DeleteDonor" Click="DeleteDonor_Click"/>
+                    </StackPanel>
                     <StackPanel Grid.Column="1" Grid.Row="0">
+                        <Button  Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}" Content="Update" Margin="5,0,4.6,0" >
+                            <Button.CommandParameter>
+                                <StackPanel>
+                                    <StackPanel Margin="16">
+                                        <TextBox x:Name="nameTextBox" Text="{Binding donor.name}" materialDesign:HintAssist.Hint="Employee Name"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 8 0 0" HorizontalAlignment="Left" Width="200" />
+                                        <TextBox x:Name="mobileTextBox" Text="{Binding donor.mobile}" materialDesign:HintAssist.Hint="Employee Mobile"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0 8 0 0" HorizontalAlignment="Left"  Width="200" />
+                                        <TextBox x:Name="cityTextBox" Text="{Binding donor.city}" materialDesign:HintAssist.Hint="Employee City"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0 8 0 0" HorizontalAlignment="Left"  Width="200" />
+                                        <TextBox x:Name="governorateTextBox" Text="{Binding donor.governorate}" materialDesign:HintAssist.Hint="Employee governorate"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0 8 0 0" HorizontalAlignment="Left"  Width="200" />
+                                        <TextBox x:Name="line1TextBox" Text="{Binding donor.addressLine1}" materialDesign:HintAssist.Hint="Address Line1" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0 8 0 0" HorizontalAlignment="Left"  Width="200" />
+                                        <TextBox x:Name="line2TextBox" Text="{Binding donor.addressLine2}" materialDesign:HintAssist.Hint="Address Line2 "  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0 8 0 0" HorizontalAlignment="Left"  Width="200" />
+                                        
+                                        
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
+                                        <Button Style="{StaticResource MaterialDesignFlatButton}"
+                                            IsDefault="True"
+                                            Margin="0 8 0 0"
+                                            Click="UpdateDonor_Click">
+                                            <Button.CommandParameter>
+                                                <system:Boolean>True</system:Boolean>
+                                            </Button.CommandParameter>
+                                            SUBMIT
+                                        </Button>
+                                        <Button Style="{StaticResource MaterialDesignFlatButton}"
+                                        IsCancel="True"
+                                        Margin="0 8 0 0"
+                                        Command="materialDesign:DialogHost.CloseDialogCommand">
+                                            <Button.CommandParameter>
+                                                <system:Boolean>False</system:Boolean>
+                                            </Button.CommandParameter>
+                                            CANCEL
+                                        </Button>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Button.CommandParameter>
+                        </Button>
+                    </StackPanel>
+                    <StackPanel Grid.Column="0" Grid.Row="2">
                         <TextBlock Style="{StaticResource InfoTitle}">Mobile</TextBlock>
                         <TextBlock Text="{Binding donor.mobile}" Style="{StaticResource InfoValue}"/>
                     </StackPanel>
-                    <StackPanel Grid.Column="2" Grid.Row="0">
+                    <StackPanel Grid.Column="1" Grid.Row="1">
                         <TextBlock Style="{StaticResource InfoTitle}">Line 1</TextBlock>
                         <TextBlock Text="{Binding donor.addressLine1}" Style="{StaticResource InfoValue}"/>
                     </StackPanel>
-                    <StackPanel Grid.Column="0" Grid.Row="1">
+                    <StackPanel Grid.Column="3" Grid.Row="1">
                         <TextBlock Style="{StaticResource InfoTitle}">Line 2</TextBlock>
                         <TextBlock Text="{Binding donor.addressLine2}" Style="{StaticResource InfoValue}"/>
                     </StackPanel>
 
-                    <StackPanel Grid.Column="1" Grid.Row="1">
+                    <StackPanel Grid.Column="1" Grid.Row="2">
                         <TextBlock Style="{StaticResource InfoTitle}">City</TextBlock>
                         <TextBlock Text="{Binding donor.city}" Style="{StaticResource InfoValue}"/>
                     </StackPanel>
-                    <StackPanel Grid.Column="2" Grid.Row="1">
+                    <StackPanel Grid.Column="2" Grid.Row="2">
                         <TextBlock Style="{StaticResource InfoTitle}">Governorate</TextBlock>
                         <TextBlock Text="{Binding donor.governorate}" Style="{StaticResource InfoValue}"/>
                     </StackPanel>
