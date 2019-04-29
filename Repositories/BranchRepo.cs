@@ -109,10 +109,10 @@ namespace charity_management_system.Repositories
             return true;
         }
 
-        public bool saveData()
+        public bool saveData(DataTable dt)
         {
             cmdBuilder = new OracleCommandBuilder(adapter);
-             int ret =  adapter.Update(ds.Tables[0]);
+             int ret =  adapter.Update(dt);
             return true;
         }
 

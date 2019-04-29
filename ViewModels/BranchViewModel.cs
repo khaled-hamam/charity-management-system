@@ -6,18 +6,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using charity_management_system.Repositories;
+using System.Data;
 
 namespace charity_management_system.ViewModels
 {
     class BranchViewModel : Screen
     {
-        public List<Branch> branches { get; set; }
-        private IRepository<Branch> _repository;
+        public DataView branches { get; set; }
+        private BranchRepo _repository;
         public BranchViewModel()
         {
             _repository = new BranchRepo();
-            branches = new List<Branch>();
-            branches = _repository.findAll();
+            branches = new DataView();
+            branches = _repository.dataSet.Tables[0].DefaultView;
+        }
+        public void save()
+        {
+           // Console.WriteLine("here");
+            _repository.saveData(branches.Table);
         }
     }
 }

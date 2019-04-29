@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,13 +16,18 @@ namespace charity_management_system.ViewModels
 {
     public class DepartmentsViewModel : Screen
     {
-        public  List<Department> Departments { get; set; }
-        private IRepository<Department> _repository;
+        public  DataView Departments { get; set; }
+        private DepartmentRepo _repository;
         public DepartmentsViewModel()
         {
             _repository = new DepartmentRepo();
-            Departments = new List<Department>();
-            Departments = _repository.findAll();
+            Departments = new DataView();
+            Departments = _repository.dataSet.Tables[0].DefaultView;
+        }
+
+        public void save()
+        {
+            _repository.saveData(Departments.Table);
         }
     }
 }

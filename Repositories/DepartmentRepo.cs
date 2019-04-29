@@ -14,6 +14,14 @@ namespace charity_management_system.Repositories
         private OracleDataAdapter adapter;
         private OracleCommandBuilder builder;
         private DataSet ds;
+        public DataSet dataSet
+        {
+            get
+            {
+                return this.ds;
+            }
+        }
+
         private String command;
 
         public DepartmentRepo()
@@ -85,6 +93,12 @@ namespace charity_management_system.Repositories
         public bool update(Department newModel)
         {
             return false;
+        }
+        public bool saveData(DataTable dt)
+        {
+            builder = new OracleCommandBuilder(adapter);
+            int ret = adapter.Update(dt);
+            return true;
         }
     }
 }
