@@ -32,6 +32,7 @@ namespace charity_management_system.Views.Components
             VolunteerRepo emp = new VolunteerRepo();
 
             emp.delete(((VolunteerCardViewModel)this.DataContext).volunteer);
+            VolunteerDataStore.instance.data.Remove(((VolunteerCardViewModel)this.DataContext).volunteer);
         }
     }
 }
