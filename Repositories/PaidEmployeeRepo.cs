@@ -135,7 +135,6 @@ namespace charity_management_system.Repositories
             command = new OracleCommand();
             command.Connection = connection;
 
-            command.BindByName = true;
             command.CommandText = "SAVE_PAID_EMPLOYEE";
             command.CommandType = CommandType.StoredProcedure;
             command.Parameters.Add("ssn", model.SSN);
@@ -160,11 +159,12 @@ namespace charity_management_system.Repositories
             p.Value = model.branch.id;
             command.Parameters.Add(p);
 
-            command.Parameters.Add("department_name", model.department.name);
 
             p = new OracleParameter(":salary", OracleDbType.Decimal);
             p.Value = model.salary;
             command.Parameters.Add(p);
+
+            command.Parameters.Add("department_name", model.department.name);
             int ret = command.ExecuteNonQuery();
             if (ret != -1)
             {
