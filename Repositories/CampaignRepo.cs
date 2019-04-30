@@ -130,12 +130,12 @@ namespace charity_management_system.Repositories
         {
             command.CommandText = "update campaign set name =:name, start_date =:start_date, end_date =:end_date, description =:description, goal =:goal where id =: campaign_id";
             command.CommandType = System.Data.CommandType.Text;
-            command.Parameters.Add("campaign_id", newModel.id);
             command.Parameters.Add("name", newModel.name);
             command.Parameters.Add("start_date", newModel.startDate);
             command.Parameters.Add("end_date", newModel.endDate);
             command.Parameters.Add("description", newModel.description);
             command.Parameters.Add("goal", newModel.goal);
+            command.Parameters.Add("campaign_id", newModel.id);
 
             int check = command.ExecuteNonQuery();
             if (check == -1)

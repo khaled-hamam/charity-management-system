@@ -40,8 +40,8 @@
                                         <TextBox x:Name="nameTextBox" Text="{Binding campaign.name}" materialDesign:HintAssist.Hint="Employee Name"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 8 0 0" HorizontalAlignment="Left" Width="200" />
                                         <TextBox x:Name="descriptionTextBox" Text="{Binding campaign.description}" materialDesign:HintAssist.Hint="Employee City"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0 8 0 0" HorizontalAlignment="Left"  Width="200" />
                                         <TextBox x:Name="goalTextBox" Text="{Binding campaign.goal}" materialDesign:HintAssist.Hint="Employee governorate"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0 8 0 0" HorizontalAlignment="Left"  Width="200" />
-                                        <DatePicker x:Name="startDate" Text="{Binding campaign.startDate}" materialDesign:HintAssist.Hint="Address Line1" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0 8 0 0" HorizontalAlignment="Left"  Width="200" />
-                                        <DatePicker x:Name="endDate" Text="{Binding campaign.endDate}" materialDesign:HintAssist.Hint="Address Line2 "  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0 8 0 0" HorizontalAlignment="Left"  Width="200" />
+                                        <DatePicker x:Name="startDate" Text="{Binding campaign.startDate}" materialDesign:HintAssist.Hint="Address Line1"  Margin="0 8 0 0" HorizontalAlignment="Left"  Width="200" />
+                                        <DatePicker x:Name="endDate" Text="{Binding campaign.endDate}" materialDesign:HintAssist.Hint="Address Line2 "    Margin="0 8 0 0" HorizontalAlignment="Left"  Width="200" />
 
 
                                     </StackPanel>

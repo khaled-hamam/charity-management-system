@@ -41,6 +41,8 @@ namespace charity_management_system.Views
             campaign.goal = goalTextBox.Text;
             campaign.startDate = startDate.SelectedDate.Value.Date;
             campaign.endDate = endDate.SelectedDate.Value.Date;
+
+            campaignRepo.update(campaign);
         }
     }
 }

@@ -25,7 +25,7 @@
                     <Button HorizontalAlignment="Center" Style="{StaticResource NavigateButtons}" x:Name="LoadPaidEmployeesPage">Paid Employees</Button>
                     <Button HorizontalAlignment="Center" Style="{StaticResource NavigateButtons}" x:Name="LoadVolunteersPage">Volunteers</Button>
                     <Button HorizontalAlignment="Center" Style="{StaticResource NavigateButtons}" x:Name="LoadDepartmentsPage" >Departments</Button>
-                    <Button HorizontalAlignment="Center" Style="{StaticResource NavigateButtons}">Campains</Button>
+                    <Button HorizontalAlignment="Center" Style="{StaticResource NavigateButtons}" x:Name="LoadCampaignsPage" >Campaigns</Button>
                     <Button HorizontalAlignment="Center" Style="{StaticResource NavigateButtons}" x:Name="LoadBranchPage">Branches</Button>
                     <Button HorizontalAlignment="Center" Style="{StaticResource NavigateButtons}" x:Name="LoadBranchMasterPage">Branch Master</Button>
                     <Button HorizontalAlignment="Center" Style="{StaticResource NavigateButtons}" x:Name="LoadDonorsPage">Donors</Button>
