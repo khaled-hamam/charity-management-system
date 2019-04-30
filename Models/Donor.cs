@@ -8,11 +8,11 @@ namespace charity_management_system.Models {
     public class Donor {
         public int id;
         public String name { get; set; }
-        public String mobile;
-        public String addressLine1;
-        public String addressLine2;
-        public String governorate;
-        public String city;
+        public String mobile { get; set; }
+        public String addressLine1 { get; set; }
+        public String addressLine2 { get; set; }
+        public String governorate { get; set; }
+        public String city { get; set; }
 
         public Donor() { }
         public Donor (String name, String mobile, String address_line1, String city, String governorate) {
