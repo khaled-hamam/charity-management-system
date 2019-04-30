@@ -32,24 +32,29 @@ namespace charity_management_system.Views.Components
             VolunteerRepo employeeRepo = new VolunteerRepo();
             Volunteer employee = ((VolunteerCardViewModel)this.DataContext).volunteer;
 
-            char empGender;
-            if (employeeGender.Text.ToString() == "Male")
-                empGender = 'M';
-            else
-                empGender = 'F';
+         
+            if (employeeGender.SelectedValue != null)
+            {
 
-            employee.name = nameTextBox.Text;
+                employee.gender = employeeGender.Text[0];
+
+            }
+
+            if (nameTextBox.Text != null)
+                employee.name = nameTextBox.Text;
+
+            if (birthdayBox.SelectedDate != null)
+                employee.birthDate = birthdayBox.SelectedDate.Value.Date;
+
             employee.mobile = mobileTextBox.Text;
             employee.email = emailTextBox.Text;
-            employee.birthDate = birthdayBox.SelectedDate.Value.Date;
-            employee.gender = empGender;
             employee.addressLine1 = line1TextBox.Text;
             employee.addressLine2 = line2TextBox.Text;
             employee.city = cityTextBox.Text;
             employee.governorate = governorateTextBox.Text;
             employee.branch = new Branch { id = int.Parse(EmployeeBranchComboBox.Text.ToString()) };
         
-            employee.name = nameTextBox.Text;
+  
 
             employeeRepo.update(((VolunteerCardViewModel)this.DataContext).volunteer);
 
