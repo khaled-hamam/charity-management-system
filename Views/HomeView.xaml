@@ -29,7 +29,6 @@
                     <Button HorizontalAlignment="Center" Style="{StaticResource NavigateButtons}" x:Name="LoadBranchPage">Branches</Button>
                     <Button HorizontalAlignment="Center" Style="{StaticResource NavigateButtons}" x:Name="LoadBranchMasterPage">Branch Master</Button>
                     <Button HorizontalAlignment="Center" Style="{StaticResource NavigateButtons}" x:Name="LoadDonorsPage">Donors</Button>
-                    <Button HorizontalAlignment="Center" Style="{StaticResource NavigateButtons}">Reports</Button>
                 </ListView>
                 <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Center">
                     <Button Command="{Binding ReloadDataCommand}" Style="{StaticResource SettingsButton}">
