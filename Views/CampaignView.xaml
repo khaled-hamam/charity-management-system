@@ -72,7 +72,7 @@
             <Button.CommandParameter>
                 <StackPanel>
                     <StackPanel Margin="16">
-                        <TextBox  Text="{Binding CampaignNameTextBox}" x:Name="nameTextBox" materialDesign:HintAssist.Hint="Donor Name"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 8 0 0" HorizontalAlignment="Left" Width="200" />
+                        <TextBox  Text="{Binding CampaignNameTextBox}" x:Name="nameTextBox" materialDesign:HintAssist.Hint="Campaign Name"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 8 0 0" HorizontalAlignment="Left" Width="200" />
                         <DatePicker SelectedDate="{Binding CampaignStartDatePicker}" materialDesign:HintAssist.Hint="Campaign StartDate"  Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Margin="0 15 0 0" HorizontalAlignment="Left"  Width="200" x:Name="CampaignStartDatePicker"  />
                         <DatePicker SelectedDate="{Binding CampaignEndDatePicker}" materialDesign:HintAssist.Hint="Campaign EndDate"  Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Margin="0 15 0 0" HorizontalAlignment="Left"  Width="200" x:Name="CampaignEndDatePicker"  />
                         <TextBox Text="{Binding CampaignDescriptionTextBox}" materialDesign:HintAssist.Hint="Campaign Description"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0 8 0 0" HorizontalAlignment="Left"  Width="200" x:Name="CampaignDescriptionTextBox" />
