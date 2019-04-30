@@ -56,7 +56,7 @@ namespace charity_management_system.Views.Components
         
   
 
-            employeeRepo.update(((VolunteerCardViewModel)this.DataContext).volunteer);
+            employeeRepo.update(employee);
 
         }
 

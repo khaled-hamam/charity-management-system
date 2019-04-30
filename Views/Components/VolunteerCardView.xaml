@@ -32,14 +32,14 @@
                         <RowDefinition />
                     </Grid.RowDefinitions>
                     <StackPanel Grid.Column="0" Grid.Row="0">
-                        <TextBlock  Text="{Binding volunteer.name}" FontSize="24" FontWeight="Bold" Name="employeeName"/>
+                        <TextBlock  Text="{Binding volunteer.name}" FontSize="24" FontWeight="Bold" Name="employeeName" Margin="0,0,-41.6,0"/>
                         <TextBlock  Text="{Binding Role}" FontSize="16" FontWeight="Bold"/>
                     </StackPanel>
                     <StackPanel Grid.Column="2" Grid.Row="0">
                         <Button  Content="Delete" Margin="30,0,13.4,0" x:Name="DeleteEmployee" Click="DeleteEmployee_Click"/>
                     </StackPanel>
                     <StackPanel Grid.Column="1" Grid.Row="0">
-                        <Button  Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}" Content="Update" Margin="5,0,4.6,0" >
+                        <Button  Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}" Content="Update" Margin="59,0,-18.4,0" >
                             <Button.CommandParameter>
                                 <StackPanel>
                                     <StackPanel Margin="16">
@@ -48,14 +48,14 @@
                                         <TextBox x:Name="emailTextBox" Text="{Binding volunteer.email}" materialDesign:HintAssist.Hint="Employee email"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0 8 0 0" HorizontalAlignment="Left"  Width="200" />
                                         <DatePicker x:Name="birthdayBox" DisplayDate="{Binding volunteer.birthdate}" materialDesign:HintAssist.Hint="Employee BirthDate"  Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Margin="0 15 0 0" HorizontalAlignment="Left"  Width="200"/>
                                         <ComboBox Text="{Binding volunteer.gender}" materialDesign:HintAssist.Hint="Gender"  BorderThickness="0" Background="White" x:Name="employeeGender"  Cursor="Hand"  HorizontalAlignment="Left" Margin="0 15 0 0" IsEditable="True" IsReadOnly="True">
-                                            <ComboBoxItem>m</ComboBoxItem>
-                                            <ComboBoxItem>f</ComboBoxItem>
+                                            <ComboBoxItem Content="m"/>
+                                            <ComboBoxItem Content="f"/>
                                         </ComboBox>
                                         <TextBox x:Name="cityTextBox" Text="{Binding volunteer.city}" materialDesign:HintAssist.Hint="Employee City"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0 8 0 0" HorizontalAlignment="Left"  Width="200" />
                                         <TextBox x:Name="governorateTextBox" Text="{Binding volunteer.governorate}" materialDesign:HintAssist.Hint="Employee governorate"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0 8 0 0" HorizontalAlignment="Left"  Width="200" />
                                         <TextBox x:Name="line1TextBox" Text="{Binding volunteer.addressLine1}" materialDesign:HintAssist.Hint="Address Line1" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0 8 0 0" HorizontalAlignment="Left"  Width="200" />
                                         <TextBox x:Name="line2TextBox" Text="{Binding volunteer.addressLine2}" materialDesign:HintAssist.Hint="Address Line2 "  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0 8 0 0" HorizontalAlignment="Left"  Width="200" />
-                                      
+
                                         <ComboBox 
                                         Text="{Binding volunteer.branch.id}"
                                         x:Name="EmployeeBranchComboBox"
@@ -69,20 +69,18 @@
                                         <Button Style="{StaticResource MaterialDesignFlatButton}"
                                             IsDefault="True"
                                             Margin="0 8 0 0"
-                                            Click="UpdateEmployeeClick">
+                                            Click="UpdateEmployeeClick" Content="SUBMIT">
                                             <Button.CommandParameter>
                                                 <system:Boolean>True</system:Boolean>
                                             </Button.CommandParameter>
-                                            SUBMIT
                                         </Button>
                                         <Button Style="{StaticResource MaterialDesignFlatButton}"
                                         IsCancel="True"
                                         Margin="0 8 0 0"
-                                        Command="materialDesign:DialogHost.CloseDialogCommand">
+                                        Command="materialDesign:DialogHost.CloseDialogCommand" Content="CANCEL">
                                             <Button.CommandParameter>
                                                 <system:Boolean>False</system:Boolean>
                                             </Button.CommandParameter>
-                                            CANCEL
                                         </Button>
                                     </StackPanel>
                                 </StackPanel>
