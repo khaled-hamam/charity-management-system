@@ -159,6 +159,7 @@ namespace charity_management_system.Repositories
             p.Value = model.branch.id;
             command.Parameters.Add(p);
 
+
             p = new OracleParameter(":salary", OracleDbType.Decimal);
             p.Value = model.salary;
             command.Parameters.Add(p);
@@ -172,32 +173,47 @@ namespace charity_management_system.Repositories
             return null;
         }
 
-        public bool update(PaidEmployee Model)
+        public bool update(PaidEmployee model)
         {
+
             command = new OracleCommand();
             command.Connection = connection;
-
             command.CommandText = "UPDATE_PAID_EMPLOYEE";
-            command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.Add("ssn", Model.SSN);
-            command.Parameters.Add("name", Model.name);
-            command.Parameters.Add("mobile", Model.mobile);
-            command.Parameters.Add("birth_date", Model.birthDate);
-            command.Parameters.Add("gender", Model.gender);
-            command.Parameters.Add("address_line1", Model.addressLine1);
-            command.Parameters.Add("address_line2", Model.addressLine2);
-            command.Parameters.Add("city", Model.city);
-            command.Parameters.Add("governorate", Model.governorate);
-            command.Parameters.Add("email", Model.email);
-            command.Parameters.Add("branch_id", Model.branch.id);
-            command.Parameters.Add("Department_name", Model.department.name);
+            command.CommandType = System.Data.CommandType.StoredProcedure;
+            command.Parameters.Add("ssn", model.SSN);
+            command.Parameters.Add("name", model.name);
+            command.Parameters.Add("mobile", model.mobile);
+
+            OracleParameter p = new OracleParameter(":birth_date", OracleDbType.Date);
+            p.Value = model.birthDate;
+            command.Parameters.Add(p);
+
+            p = new OracleParameter(":gender", OracleDbType.Char);
+            p.Value = model.gender;
+            command.Parameters.Add(p);
+
+            command.Parameters.Add("address_line1", model.addressLine1);
+            command.Parameters.Add("address_line2", model.addressLine2);
+            command.Parameters.Add("city", model.city);
+            command.Parameters.Add("governorate", model.governorate);
+            command.Parameters.Add("email", model.email);
+
+            p = new OracleParameter(":branch_id", OracleDbType.Decimal);
+            p.Value = model.branch.id;
+            command.Parameters.Add(p);
+
+            command.Parameters.Add("department_name", model.department.name);
+
+            p = new OracleParameter(":salary", OracleDbType.Decimal);
+            p.Value = model.salary;
+            command.Parameters.Add(p);
+
             int ret = command.ExecuteNonQuery();
             if (ret != -1)
             {
-                return true;
+                //return paid_employee;
             }
             return false;
-
         }
     }
 }

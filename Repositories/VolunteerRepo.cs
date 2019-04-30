@@ -168,7 +168,7 @@ namespace charity_management_system.Repositories
             command.Parameters.Add("governorate", newModel.governorate);
             command.Parameters.Add("email", newModel.email);
             command.Parameters.Add("branch_id", newModel.branch.id);
-            command.Parameters.Add("currently_working", newModel.currentlyWorking);
+            command.Parameters.Add("currently_working", 1);
             int check = command.ExecuteNonQuery();
             if (check == -1)
             {
