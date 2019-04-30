@@ -80,13 +80,15 @@ namespace charity_management_system.Repositories
             reader.Close();
             return Donors;
         }
-            
+
         public Donor findByID(string id)
         {
+            try
+            {
             command.CommandText = "select * from donor where id=:donor_id";
             command.CommandType = System.Data.CommandType.Text;
             command.Parameters.Add("donor_id", id);
-    
+
             OracleDataReader reader = command.ExecuteReader();
             Donor foundDonor;
             if (reader.Read())
@@ -103,10 +105,16 @@ namespace charity_management_system.Repositories
             else
             {
                 reader.Close();
+                    return null;
+            }
+            return foundDonor;
+     
+        }
+             catch (Exception e)
+            {
+                Console.WriteLine(e);
                 return null;
             }
-            reader.Close();
-            return foundDonor;
 
         }
         //insert

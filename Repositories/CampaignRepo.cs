@@ -67,9 +67,9 @@ namespace charity_management_system.Repositories
             while (reader.Read())
             {
                 Campaign campaign = new Campaign(
-                                        reader["name"].ToString(),
-                                        Convert.ToDateTime(reader["start_date"].ToString()),
-                                        Convert.ToDateTime(reader["end_date"].ToString()));
+                    reader["name"].ToString(),
+                    Convert.ToDateTime(reader["start_date"].ToString()),
+                    Convert.ToDateTime(reader["end_date"].ToString()));
                 campaign.id = int.Parse(reader["id"].ToString());
                 campaign.description = reader["description"].ToString();
                 campaign.goal = reader["goal"].ToString();
@@ -82,28 +82,37 @@ namespace charity_management_system.Repositories
 
         public Campaign findByID(string id)
         {
-            command.CommandText = "select * from campaign where id=:campaign_id";
-            command.CommandType = System.Data.CommandType.Text;
-            command.Parameters.Add("campaign_id", id);
+            try
+            {
 
-            OracleDataReader reader = command.ExecuteReader();
-            Campaign campaign;
-            if (reader.Read())
-            {
-                campaign = new Campaign(reader["name"].ToString(),
-                                        Convert.ToDateTime(reader["start_date"].ToString()),
-                                        Convert.ToDateTime(reader["end_date"].ToString()));
-                campaign.id = int.Parse(reader["id"].ToString());
-                campaign.description = reader["description"].ToString();
-                campaign.goal = reader["goal"].ToString();
-            }
-            else
-            {
+                command.CommandText = "select * from campaign where id=:campaign_id";
+                command.CommandType = System.Data.CommandType.Text;
+                command.Parameters.Add("campaign_id", id);
+
+                OracleDataReader reader = command.ExecuteReader();
+                Campaign campaign;
+                if (reader.Read())
+                {
+                    campaign = new Campaign(reader["name"].ToString(),
+                                            Convert.ToDateTime(reader["start_date"].ToString()),
+                                            Convert.ToDateTime(reader["end_date"].ToString()));
+                    campaign.id = int.Parse(reader["id"].ToString());
+                    campaign.description = reader["description"].ToString();
+                    campaign.goal = reader["goal"].ToString();
+                }
+                else
+                {
+                    reader.Close();
+                    return null;
+                }
                 reader.Close();
+                return campaign;
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e);
                 return null;
             }
-            reader.Close();
-            return campaign;
 
         }
         //insert

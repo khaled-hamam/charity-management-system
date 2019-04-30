@@ -13,24 +13,54 @@ namespace charity_management_system.ViewModels
     class CampaignViewModel : Screen
     {
         public ObservableCollection<CampaignCardViewModel> FilteredCampaigns { get; set; }
+        private ObservableCollection<CampaignCardViewModel> _Campaigns { get; set; }
+
         private IRepository<Campaign> _repository;
+        public String SearchValue { get; set; }
 
         public CampaignViewModel()
         {
+            SearchValue = "";
             _repository = new CampaignRepo();
-            FilteredCampaigns = new ObservableCollection<CampaignCardViewModel>();
-
-            FilteredCampaigns = Mapper.toViewModel<Campaign, CampaignCardViewModel>(
+            _Campaigns = new ObservableCollection<CampaignCardViewModel>();
+            _Campaigns = Mapper.toViewModel<Campaign, CampaignCardViewModel>(
                 CampaignDataStore.instance.data as ObservableCollection<Campaign>,
                     (campaign) => new CampaignCardViewModel(campaign));
 
-            CampaignDataStore.instance.data.CollectionChanged += new NotifyCollectionChangedEventHandler((obj, e) =>
+            DonorDataStore.instance.data.CollectionChanged += new NotifyCollectionChangedEventHandler((obj, e) =>
             {
                 FilteredCampaigns = Mapper.toViewModel<Campaign, CampaignCardViewModel>(
                     obj as ObservableCollection<Campaign>,
                     (campaign) => new CampaignCardViewModel(campaign)
                 );
             });
+
+
+            this.PropertyChanged += CampaignViewModel_PropertyChanged;
+
+            FilteredCampaigns = new ObservableCollection<CampaignCardViewModel>(_Campaigns);
+
+
         }
+        private void CampaignViewModel_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == "SearchValue" && SearchValue.Length > 0)
+            {
+                Campaign p = CampaignDataStore.instance.repository.findByID(SearchValue);
+                FilteredCampaigns.Clear();
+                if (p != null)
+                {
+
+                    var s = new CampaignCardViewModel(p);
+                    FilteredCampaigns.Add(s);
+
+                }
+            }
+            else if (e.PropertyName == "SearchValue")
+            {
+                FilteredCampaigns = _Campaigns;
+            }
+        }
+
     }
 }

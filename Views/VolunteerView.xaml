@@ -26,7 +26,7 @@
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
                 <TextBox x:Name="SearchValue" Grid.Column="0" Margin="8 0 0 0" 
-                         materialDesign:HintAssist.Hint="Search by SSN"
+                         materialDesign:HintAssist.Hint="Search by name"
                          materialDesign:HintAssist.HintOpacity="0.4"
                          materialDesign:TextFieldAssist.DecorationVisibility="Hidden" 
                          BorderThickness="0"
