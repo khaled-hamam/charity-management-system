@@ -49,8 +49,8 @@
                                         <TextBox x:Name="emailTextBox" Text="{Binding employee.email}" materialDesign:HintAssist.Hint="Employee email"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0 8 0 0" HorizontalAlignment="Left"  Width="200" />
                                         <DatePicker x:Name="birthdayBox" Text="{Binding employee.birthdate}" materialDesign:HintAssist.Hint="Employee BirthDate"  Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Margin="0 15 0 0" HorizontalAlignment="Left"  Width="200"/>
                                         <ComboBox  Text="{Binding employee.gender}" materialDesign:HintAssist.Hint="Gender" BorderThickness="0" Background="White" x:Name="employeeGender"  Cursor="Hand"  HorizontalAlignment="Left" Margin="0 15 0 0">
-                                            <ComboBoxItem>Male</ComboBoxItem>
-                                            <ComboBoxItem>Female</ComboBoxItem>
+                                            <ComboBoxItem>M</ComboBoxItem>
+                                            <ComboBoxItem>F</ComboBoxItem>
                                         </ComboBox>
                                         <TextBox x:Name="cityTextBox" Text="{Binding employee.city}" materialDesign:HintAssist.Hint="Employee City"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0 8 0 0" HorizontalAlignment="Left"  Width="200" />
                                         <TextBox x:Name="governorateTextBox" Text="{Binding employee.governorate}" materialDesign:HintAssist.Hint="Employee governorate"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0 8 0 0" HorizontalAlignment="Left"  Width="200" />
