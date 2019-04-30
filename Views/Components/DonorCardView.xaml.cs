@@ -33,6 +33,8 @@ namespace charity_management_system.Views.Components
             donor.city = cityTextBox.Text;
             donor.governorate = governorateTextBox.Text;
             donor.mobile = mobileTextBox.Text;
+
+            DonorRepo.update(donor);
         }
 
         private void DeleteDonor_Click(object sender, RoutedEventArgs e)

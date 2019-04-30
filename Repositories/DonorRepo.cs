@@ -134,13 +134,13 @@ namespace charity_management_system.Repositories
         {
             command.CommandText = "update donor set name =:name, mobile =:mobile, address_line1 =:address_line1, address_line2 =:address_line2, city =:city, governorate =:governorate where id =: donor_id";
             command.CommandType = System.Data.CommandType.Text;
-            command.Parameters.Add("donor_id", newModel.id);
             command.Parameters.Add("name", newModel.name);
             command.Parameters.Add("mobile", newModel.mobile);
             command.Parameters.Add("address_line1", newModel.addressLine1);
             command.Parameters.Add("address_line2", newModel.addressLine2);
             command.Parameters.Add("city", newModel.city);
             command.Parameters.Add("governorate", newModel.governorate);
+            command.Parameters.Add("donor_id", newModel.id);
 
             int check = command.ExecuteNonQuery();
             if(check == -1)
