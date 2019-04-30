@@ -46,10 +46,10 @@
                                         <TextBox x:Name="nameTextBox" Text="{Binding volunteer.name}" materialDesign:HintAssist.Hint="Employee Name"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 8 0 0" HorizontalAlignment="Left" Width="200" />
                                         <TextBox x:Name="mobileTextBox" Text="{Binding volunteer.mobile}" materialDesign:HintAssist.Hint="Employee Mobile"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0 8 0 0" HorizontalAlignment="Left"  Width="200" />
                                         <TextBox x:Name="emailTextBox" Text="{Binding volunteer.email}" materialDesign:HintAssist.Hint="Employee email"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0 8 0 0" HorizontalAlignment="Left"  Width="200" />
-                                        <DatePicker x:Name="birthdayBox" SelectedDate="{Binding volunteer.birthdate}" materialDesign:HintAssist.Hint="Employee BirthDate"  Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Margin="0 15 0 0" HorizontalAlignment="Left"  Width="200"/>
-                                        <ComboBox materialDesign:HintAssist.Hint="Gender"  BorderThickness="0" Background="White" x:Name="employeeGender"  Cursor="Hand"  HorizontalAlignment="Left" Margin="0 15 0 0">
-                                            <ComboBoxItem>Male</ComboBoxItem>
-                                            <ComboBoxItem>Female</ComboBoxItem>
+                                        <DatePicker x:Name="birthdayBox" DisplayDate="{Binding volunteer.birthdate}" materialDesign:HintAssist.Hint="Employee BirthDate"  Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Margin="0 15 0 0" HorizontalAlignment="Left"  Width="200"/>
+                                        <ComboBox Text="{Binding volunteer.gender}" materialDesign:HintAssist.Hint="Gender"  BorderThickness="0" Background="White" x:Name="employeeGender"  Cursor="Hand"  HorizontalAlignment="Left" Margin="0 15 0 0" IsEditable="True" IsReadOnly="True">
+                                            <ComboBoxItem>m</ComboBoxItem>
+                                            <ComboBoxItem>f</ComboBoxItem>
                                         </ComboBox>
                                         <TextBox x:Name="cityTextBox" Text="{Binding volunteer.city}" materialDesign:HintAssist.Hint="Employee City"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0 8 0 0" HorizontalAlignment="Left"  Width="200" />
                                         <TextBox x:Name="governorateTextBox" Text="{Binding volunteer.governorate}" materialDesign:HintAssist.Hint="Employee governorate"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0 8 0 0" HorizontalAlignment="Left"  Width="200" />
@@ -57,7 +57,7 @@
                                         <TextBox x:Name="line2TextBox" Text="{Binding volunteer.addressLine2}" materialDesign:HintAssist.Hint="Address Line2 "  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0 8 0 0" HorizontalAlignment="Left"  Width="200" />
                                       
                                         <ComboBox 
-                                        Text="{Binding volunteer.branch.name}"
+                                        Text="{Binding volunteer.branch.id}"
                                         x:Name="EmployeeBranchComboBox"
                                         materialDesign:HintAssist.Hint="Employee Branch"  
                                         IsEditable="True" Style="{StaticResource MaterialDesignFloatingHintComboBox}"  

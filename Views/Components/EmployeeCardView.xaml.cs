@@ -38,17 +38,19 @@ namespace charity_management_system.Views.Components
             PaidEmployeeRepo employeeRepo = new PaidEmployeeRepo();
             PaidEmployee employee = ((EmployeeCardViewModel)this.DataContext).employee;
 
-            char empGender;
-            if (employeeGender.Text.ToString() == "Male")
-                empGender = 'M';
-            else
-                empGender = 'F';
+            if(employeeGender.SelectedValue!=null)
+            {
+               
+                    employee.gender = employeeGender.Text[0];
+              
+            }
+            if(nameTextBox.Text!=null)
+                employee.name = nameTextBox.Text;
+            if (birthdayBox.SelectedDate!=null)
+                employee.birthDate = birthdayBox.SelectedDate.Value.Date;
 
-            employee.name = nameTextBox.Text;
             employee.mobile = mobileTextBox.Text;
             employee.email = emailTextBox.Text;
-            employee.birthDate = birthdayBox.SelectedDate.Value.Date;
-            employee.gender = empGender;
             employee.addressLine1 = line1TextBox.Text;
             employee.addressLine2 = line2TextBox.Text;
             employee.city = cityTextBox.Text;
@@ -56,7 +58,6 @@ namespace charity_management_system.Views.Components
             employee.branch = new Branch { id = int.Parse(EmployeeBranchComboBox.Text.ToString()) };
             employee.salary = int.Parse(salaryTextBox.Text);
             employee.department = new Department(EmployeeDepartmentComboBox.Text.ToString());
-            employee.name = nameTextBox.Text;
 
             employeeRepo.update(((EmployeeCardViewModel)this.DataContext).employee);
         }

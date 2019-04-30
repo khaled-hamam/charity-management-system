@@ -1,5 +1,6 @@
 ﻿using charity_management_system.DataStores;
 using charity_management_system.Models;
+using charity_management_system.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,9 +23,14 @@ namespace charity_management_system.Views
     /// </summary>
     public partial class VolunteerView : UserControl
     {
+        BranchRepo br = new BranchRepo();
         public VolunteerView()
         {
             InitializeComponent();
+            foreach (Branch branch in br.findAll())
+            {
+                EmployeeBranchComboBox.Items.Add(branch.id);
+            }
         }
         private void addEmployee(object sender, RoutedEventArgs e)
         {
