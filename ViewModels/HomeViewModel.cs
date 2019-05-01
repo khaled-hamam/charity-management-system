@@ -46,5 +46,9 @@ namespace charity_management_system.ViewModels
         {
             ActivateItem(new CampaignViewModel());
         }
+        public void LoadDonationsPage()
+        {
+            ActivateItem(new DonationsViewModel());
+        }
     }
 }

@@ -83,19 +83,28 @@ namespace charity_management_system.Repositories {
         }
 
         public Donation save (Donation model) {
-            command.CommandText = "insert into donations values (:value, :type, :date, :campaign_id, :donor_id)";
+            command.CommandText = "insert into donation values (:ivalue, :itype, :idate, :icampaign_id, :idonor_id)";
             command.CommandType = System.Data.CommandType.Text;
-            command.Parameters.Add ("value", model.value);
-            command.Parameters.Add ("type", model.type);
-            command.Parameters.Add ("date", model.date);
-            command.Parameters.Add ("campaign_id", model.campaign.id);
-            command.Parameters.Add ("donor_id", model.donor.id);
+            command.Parameters.Add ("ivalue", model.value);
+            command.Parameters.Add ("itype", model.type);
 
-            int check = command.ExecuteNonQuery ();
-            //if (check != -1)
-            //{
-            //    return model;
-            //}
+            OracleParameter p = new OracleParameter(":ibirth_date", OracleDbType.Date);
+            p.Value = model.date;
+            command.Parameters.Add(p);
+
+            p = new OracleParameter(":icampaign_id", OracleDbType.Decimal);
+            p.Value = model.campaign.id;
+            command.Parameters.Add(p);
+
+            p = new OracleParameter(":idonor_id", OracleDbType.Decimal);
+            p.Value = model.donor.id;
+            command.Parameters.Add(p);
+
+            int check = command.ExecuteNonQuery();
+            if (check != -1)
+            {
+                return model;
+            }
             return null;
         }
 

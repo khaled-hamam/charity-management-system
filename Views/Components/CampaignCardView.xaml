@@ -18,7 +18,6 @@
             Foreground="{StaticResource DarkText}"
             materialDesign:ShadowAssist.ShadowDepth="Depth1">
             <StackPanel VerticalAlignment="Center">
-                <TextBlock  Text="{Binding campaign.name}" FontSize="24" FontWeight="Bold"/>
                 <Grid Margin="0 5">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition />
@@ -29,19 +28,22 @@
                         <RowDefinition />
                         <RowDefinition/>
                     </Grid.RowDefinitions>
+                    <StackPanel Grid.Column="0" Grid.Row="0">
+                        <TextBlock  Text="{Binding campaign.name}" FontSize="24" FontWeight="Bold" Margin="0,0,10,0"/>
+                    </StackPanel>
                     <StackPanel Grid.Column="1" Grid.Row="0">
-                        <Button  Content="Delete" Margin="30,0,13.4,0" x:Name="DeleteCampaign" Click="DeleteCampaign_Click"/>
+                        <Button  Content="Delete" Margin="104,0,-1,0" x:Name="DeleteCampaign" Click="DeleteCampaign_Click"/>
                     </StackPanel>
                     <StackPanel Grid.Column="0" Grid.Row="0">
-                        <Button  Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}" Content="Update" Margin="5,0,4.6,0" >
+                        <Button  Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}" Content="Update" Margin="195,0,-92,0" >
                             <Button.CommandParameter>
                                 <StackPanel>
                                     <StackPanel Margin="16">
-                                        <TextBox x:Name="nameTextBox" Text="{Binding campaign.name}" materialDesign:HintAssist.Hint="Employee Name"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 8 0 0" HorizontalAlignment="Left" Width="200" />
-                                        <TextBox x:Name="descriptionTextBox" Text="{Binding campaign.description}" materialDesign:HintAssist.Hint="Employee City"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0 8 0 0" HorizontalAlignment="Left"  Width="200" />
-                                        <TextBox x:Name="goalTextBox" Text="{Binding campaign.goal}" materialDesign:HintAssist.Hint="Employee governorate"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0 8 0 0" HorizontalAlignment="Left"  Width="200" />
-                                        <DatePicker x:Name="startDate" Text="{Binding campaign.startDate}" materialDesign:HintAssist.Hint="Address Line1"  Margin="0 8 0 0" HorizontalAlignment="Left"  Width="200" />
-                                        <DatePicker x:Name="endDate" Text="{Binding campaign.endDate}" materialDesign:HintAssist.Hint="Address Line2 "    Margin="0 8 0 0" HorizontalAlignment="Left"  Width="200" />
+                                        <TextBox x:Name="nameTextBox" Text="{Binding campaign.name}" materialDesign:HintAssist.Hint="Campaign Name"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="0 8 0 0" HorizontalAlignment="Left" Width="200" />
+                                        <TextBox x:Name="descriptionTextBox" Text="{Binding campaign.description}" materialDesign:HintAssist.Hint="Campaign desription"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0 8 0 0" HorizontalAlignment="Left"  Width="200" />
+                                        <TextBox x:Name="goalTextBox" Text="{Binding campaign.goal}" materialDesign:HintAssist.Hint="Campaign Goal"  Style="{StaticResource MaterialDesignFloatingHintTextBox}"  Margin="0 8 0 0" HorizontalAlignment="Left"  Width="200" />
+                                        <DatePicker x:Name="startDate" Text="{Binding campaign.startDate}" materialDesign:HintAssist.Hint="Campaign start Date"  Margin="0 8 0 0" HorizontalAlignment="Left"  Width="200" />
+                                        <DatePicker x:Name="endDate" Text="{Binding campaign.endDate}" materialDesign:HintAssist.Hint="Campaign End Date "    Margin="0 8 0 0" HorizontalAlignment="Left"  Width="200" />
 
 
                                     </StackPanel>

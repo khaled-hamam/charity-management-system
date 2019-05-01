@@ -147,6 +147,7 @@
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="DataStores\BaseDataStore.cs" />
     <Compile Include="DataStores\CampaignDataStore.cs" />
+    <Compile Include="DataStores\DonationDataStore.cs" />
     <Compile Include="DataStores\DonorDataStore.cs" />
     <Compile Include="DataStores\EmployeeDataStore.cs" />
     <Compile Include="DataStores\VolunteerDataStore.cs" />
@@ -171,6 +172,8 @@
     <Compile Include="Utils\DBManager.cs" />
     <Compile Include="ViewModels\CampaignCardViewModel.cs" />
     <Compile Include="ViewModels\CampaignViewModel.cs" />
+    <Compile Include="ViewModels\DonationsCardViewModel.cs" />
+    <Compile Include="ViewModels\DonationsViewModel.cs" />
     <Compile Include="ViewModels\VolunteerCardViewModel.cs" />
     <Compile Include="ViewModels\VolunteerViewModel.cs" />
     <Compile Include="Views\CampaignView.xaml.cs">
@@ -179,8 +182,14 @@
     <Compile Include="Views\Components\CampaignCardView.xaml.cs">
       <DependentUpon>CampaignCardView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Components\DonationsCardView.xaml.cs">
+      <DependentUpon>DonationsCardView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Components\VolunteerCardView.xaml.cs">
       <DependentUpon>VolunteerCardView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DonationsView.xaml.cs">
+      <DependentUpon>DonationsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\VolunteerView.xaml.cs">
       <DependentUpon>VolunteerView.xaml</DependentUpon>
@@ -201,6 +210,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Views\Components\DonationsCardView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Components\DonorCardView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -214,6 +227,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\DepartmentsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DonationsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

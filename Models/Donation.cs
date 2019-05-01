@@ -2,11 +2,11 @@
 
 namespace charity_management_system.Models {
     public class Donation {
-        public Donor donor;
-        public Campaign campaign;
-        public DateTime date;
-        public String type;
-        public float value;
+        public Donor donor { get; set; }
+        public Campaign campaign { get; set; }
+        public DateTime date { get; set; }
+        public String type { get; set; }
+        public float value { get; set; }
 
         public Donation () { }
 

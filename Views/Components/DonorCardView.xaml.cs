@@ -40,7 +40,7 @@ namespace charity_management_system.Views.Components
         private void DeleteDonor_Click(object sender, RoutedEventArgs e)
         {
 
-            DonorRepo donorRepo = new DonorRepo();
+            DonorRepo donorRepo = new DonorRepo(); 
 
             donorRepo.delete(((DonorCardViewModel)this.DataContext).donor);
             DonorDataStore.instance.data.Remove(((DonorCardViewModel)this.DataContext).donor);

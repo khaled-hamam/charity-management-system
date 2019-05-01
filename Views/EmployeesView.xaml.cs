@@ -45,7 +45,7 @@ namespace charity_management_system.Views
                 empGender = 'M';
             else
                 empGender = 'F';
-            Employee employee = new PaidEmployee()
+             Employee employee = new PaidEmployee()
             {
                 SSN = SSNTextBox.Text,
                 name = nameTextBox.Text,
