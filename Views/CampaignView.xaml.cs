@@ -28,7 +28,7 @@ namespace charity_management_system.Views
         private void addCampaign(object sender, RoutedEventArgs e)
         {
             CampaignRepo campaign = new CampaignRepo();
-            Campaign newCampaign = new Campaign() { id = (int)DateTime.Now.Ticks, name = nameTextBox.Text, startDate = CampaignStartDatePicker.SelectedDate.Value.Date, endDate = CampaignEndDatePicker.SelectedDate.Value.Date, description = CampaignDescriptionTextBox.Text, goal = CampaignGoalTextBox.Text };
+            Campaign newCampaign = new Campaign() { name = nameTextBox.Text, startDate = CampaignStartDatePicker.SelectedDate.Value.Date, endDate = CampaignEndDatePicker.SelectedDate.Value.Date, description = CampaignDescriptionTextBox.Text, goal = CampaignGoalTextBox.Text };
             campaign.save(newCampaign);
             CampaignDataStore.instance.data.Add(newCampaign);
         }
