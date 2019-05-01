@@ -13,21 +13,48 @@ namespace charity_management_system.ViewModels
     class BranchViewModel : Screen
     {
         public DataView branches { get; set; }
+        public DataView FilteredBranches { get; set; }
         private BranchRepo _repository;
+
+        public string SearchValue { get; set; }
         public BranchViewModel()
         {
             _repository = new BranchRepo();
             branches = new DataView();
-            branches = _repository.dataSet.Tables[0].DefaultView;
+            branches.Table = _repository.dataSet.Tables[0].DefaultView.Table.Copy();
+            this.PropertyChanged += BranchesViewModel_PropertyChanged;
+            FilteredBranches = new DataView();
+            FilteredBranches.Table = branches.Table.Copy();
         }
         public void save()
         {
-            foreach (DataRow dr in branches.Table.Rows)
+              branches.Table = FilteredBranches.Table.Copy();
+            _repository.saveData(FilteredBranches.Table);
+        }
+
+
+        private void BranchesViewModel_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == "SearchValue" && SearchValue.Length > 0)
             {
-                Console.WriteLine(dr["id"]);
+                FilteredBranches.Table.Rows.Clear();
+                string s = "city = '" + SearchValue + "'";
+                DataRow[] dr = branches.Table.Select(s);
+                if (dr.Length != 0)
+                {
+                    foreach(DataRow d in dr)
+                    {
+                        FilteredBranches.Table.ImportRow(d);
+                    }
+                    Console.WriteLine(FilteredBranches.Table.Rows[0]["city"]);
+                }
+
+
             }
-            // Console.WriteLine("here");
-            _repository.saveData(branches.Table);
+            else if (e.PropertyName == "SearchValue")
+            {
+                FilteredBranches.Table = branches.Table.Copy();
+            }
         }
     }
 }

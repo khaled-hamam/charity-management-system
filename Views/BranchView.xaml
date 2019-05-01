@@ -24,7 +24,8 @@
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
                 <TextBox Grid.Column="0" Margin="8 0 0 0" 
-                         materialDesign:HintAssist.Hint="Search by Name"
+                         x:Name="SearchValue"
+                         materialDesign:HintAssist.Hint="Search by City"
                          materialDesign:HintAssist.HintOpacity="0.4"
                          materialDesign:TextFieldAssist.DecorationVisibility="Hidden" 
                          BorderThickness="0"
@@ -39,7 +40,7 @@
                 </Button>
             </Grid>
         </Grid>
-        <DataGrid  Grid.Row="1" Background="Gray" x:Name="branches" Margin="0,0.4,0,28">
+        <DataGrid  Grid.Row="1" Background="Gray" x:Name="FilteredBranches" Margin="0,0.4,0,28">
 
         </DataGrid>
         <Button Margin="89,222.4,102,-4" Grid.Row="1" x:Name="save" >save</Button>
