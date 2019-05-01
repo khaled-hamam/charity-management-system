@@ -8,6 +8,7 @@ using System.Collections.Generic;
 namespace charity_management_system.Repositories
 {
     class CampaignRepo : IRepository<Campaign>
+
     {
         private OracleConnection connection;
         private OracleCommand command;
@@ -118,6 +119,7 @@ namespace charity_management_system.Repositories
         //insert
         public Campaign save(Campaign model)
         {
+            model.id = getMaxID() + 1;
             command.CommandText = "insert into campaign values (:id, :name, :start_date, :end_date, :description, :goal)";
             command.CommandType = System.Data.CommandType.Text;
             command.Parameters.Add("id", model.id);
@@ -154,5 +156,35 @@ namespace charity_management_system.Repositories
             return true;
 
         }
-    }
+
+        public int getMaxID()
+        {
+            command.CommandText = "select max(id) from campaign";
+            command.CommandType = System.Data.CommandType.Text;
+            //command.Parameters.Add("mxid", mxid);
+            try
+            {
+
+
+                OracleDataReader reader = command.ExecuteReader();
+                Console.WriteLine(reader);
+                if (reader.Read())
+                {
+                    return int.Parse(reader["max(id)"].ToString());
+                }
+                else
+                {
+                    reader.Close();
+                }
+                reader.Close();
+                return 0;
+            }
+            catch(Exception e)
+            {
+                return 0;
+            }
+            }
+          
+        }
+    
 }

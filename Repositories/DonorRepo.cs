@@ -120,6 +120,7 @@ namespace charity_management_system.Repositories
         //insert
         public Donor save(Donor model)
         {
+            model.id = getMaxID() + 1;
             command.CommandText = "insert into donor values (:id, :name, :mobile, :address_line1, :address_line2, :city, :governorate)";
             command.CommandType = System.Data.CommandType.Text;
             command.Parameters.Add("id", model.id);
@@ -157,6 +158,32 @@ namespace charity_management_system.Repositories
             }
             return true;
 
-        }   
+        }
+
+        public int getMaxID()
+        {
+            command.CommandText = "select max(id) from donor";
+            command.CommandType = System.Data.CommandType.Text;
+            try
+            {
+            OracleDataReader reader = command.ExecuteReader();
+            Console.WriteLine(reader);
+            if (reader.Read())
+            {
+                return int.Parse(reader["max(id)"].ToString());
+            }
+            else
+            {
+                reader.Close();
+            }
+            reader.Close();
+
+            return 0;
+            }
+            catch(Exception e)
+            {
+                return 0;
+            }
+        }
     }
 }
