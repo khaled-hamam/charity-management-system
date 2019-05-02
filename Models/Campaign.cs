@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace charity_management_system.Models {
     public class Campaign {
-        public int id;
+        public int id { get; set; }
         public String name { get; set; }
         public DateTime startDate { get; set; }
         public DateTime endDate { get; set; }
